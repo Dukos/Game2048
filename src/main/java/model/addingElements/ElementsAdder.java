@@ -15,6 +15,12 @@ public class ElementsAdder {
 		freeFieldFinder = new FreeFieldFinder(area);
 	}
 	
+	public ElementsAdder(Randomizer randomizer, FreeFieldFinder finder)
+	{
+		this.randomizer = randomizer;
+		this.freeFieldFinder = finder;
+	}
+	
 	public boolean tryAddNewElement() {
 		Point currentPoint = randomizer.getRandomField();
 		currentPoint = freeFieldFinder.findFirstFreeField(currentPoint);
