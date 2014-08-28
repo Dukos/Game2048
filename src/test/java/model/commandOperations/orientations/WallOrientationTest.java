@@ -13,16 +13,16 @@ import org.mockito.MockitoAnnotations;
 
 public class WallOrientationTest {
 
-	WallOrientation testObject;
+	private WallOrientation testObject;
 	
 	@Mock
-	PointIteratorsCreator groupIterator;
+	private PointIteratorsCreator groupIterator;
 
 	@Mock
-	PointIteratorsCreator lineIterator;
+	private PointIteratorsCreator lineIterator;
 	
 	@Mock
-	Iterator<Point> iterator;
+	private Iterator<Point> iterator;
 	
 	private final static Point START_POINT = new Point(1,1);
 	

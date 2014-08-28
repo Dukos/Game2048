@@ -30,11 +30,11 @@ public class PointIteratorsCreatorTest {
 	private static final Point START_POINT = new Point(1,1);
 	
 	@Mock
-	IterarorImplementation iteratorImplementation;
+	private IterarorImplementation iteratorImplementation;
 	
 	private static final Dimension DIMENSIONS = new Dimension(4,5);
 	
-	PointIteratorsCreator testObject;
+	private PointIteratorsCreator testObject;
 	
 	@Before
 	public void setUp() throws Exception {

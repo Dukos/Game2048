@@ -38,7 +38,7 @@ public class BoardLineMergerTest {
 	final Point firstElement = new Point(firstRow, fixedColumn);
 	
 	@InjectMocks
-	BoardLineMerger testObject;
+	private BoardLineMerger testObject;
 	
 	@Mock
 	private BoardArea area;

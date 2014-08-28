@@ -16,11 +16,11 @@ import main.java.model.commandOperations.orientations.WallOrientationFactory;
 import org.junit.Before;
 import org.junit.Test;
 
-class WallOrientationFactoryTest {
+public class WallOrientationFactoryTest {
 
 	private final static Dimension DIMENSIONS = new Dimension();
 	
-	WallOrientationFactory testObject;
+	private WallOrientationFactory testObject;
 	
 	@Before
 	public void setUp() throws Exception {
