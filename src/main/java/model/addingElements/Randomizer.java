@@ -11,10 +11,16 @@ public class Randomizer {
 
 	private final BoardArea area;
 	
-	private Random random = new Random();
+	private final Random random;
 
 	public Randomizer(BoardArea area) {
+		this(area, new Random());
+	}
+	
+	public Randomizer(BoardArea area, Random random)
+	{
 		this.area = area;
+		this.random = random;
 	}
 
 	public Point getRandomField() {
