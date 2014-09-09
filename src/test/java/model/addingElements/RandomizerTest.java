@@ -32,13 +32,13 @@ public class RandomizerTest {
 	private static final int MAX_VALUE_FOR_CREATED_ELEMENT = 2;
 	
 	@Mock
-	BoardArea area;
+	private BoardArea area;
 	
 	@Mock
 	private Random random;
 	
 	@InjectMocks
-	Randomizer testObject;
+	private Randomizer testObject;
 	
 	@Test
 	public void getRandomField_noSetup_callsNextInProperRange() {

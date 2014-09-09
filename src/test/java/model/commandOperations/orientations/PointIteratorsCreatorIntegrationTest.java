@@ -16,13 +16,13 @@ import org.junit.Test;
 
 public class PointIteratorsCreatorIntegrationTest {
 
-	Dimension dimensions = new Dimension(5, 3);
+	private static final Dimension DIMENSIONS = new Dimension(5, 3);
 	
-	PointIteratorsCreator testObject;
+	private PointIteratorsCreator testObject;
 	
 	@Before
 	public void setUp() throws Exception {
-		testObject = new PointIteratorsCreator(new ToBottomIteratorImplementation(), dimensions);
+		testObject = new PointIteratorsCreator(new ToBottomIteratorImplementation(), DIMENSIONS);
 	}
 	
 	@Test

@@ -33,10 +33,10 @@ public class BoardPanelTest {
 	private static final int CONFIGURED_VERSION = 2;
 	
 	@InjectMocks
-	BoardPanel testObject;
+	private BoardPanel testObject;
 	
 	@Mock
-	ReadOnlyBoardArea area;
+	private ReadOnlyBoardArea area;
 
 	@Test
 	public void constructor_noSetup_sizeIs500x500() {

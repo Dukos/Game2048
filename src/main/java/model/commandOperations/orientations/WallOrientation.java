@@ -5,9 +5,9 @@ import java.util.Iterator;
 
 public class WallOrientation {
 
-	PointIteratorsCreator lineSelectorIterator;
+	private PointIteratorsCreator lineSelectorIterator;
 
-	PointIteratorsCreator lineIterator;
+	private PointIteratorsCreator lineIterator;
 
 	public WallOrientation(PointIteratorsCreator lineSelector, PointIteratorsCreator lineIterator) {
 		this.lineSelectorIterator = lineSelector;

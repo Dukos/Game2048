@@ -23,10 +23,10 @@ public class BoardLogicTest {
 	private static final int FIXED_ROW_VALUE = 3;
 	
 	@InjectMocks
-	BoardLogic testObject;
+	private BoardLogic testObject;
 	
 	@Mock
-	ElementsAdder randomizer;
+	private ElementsAdder randomizer;
 
 	@Test
 	public void applyRandomObject_cleanBoardArea_addedRandomObject() {

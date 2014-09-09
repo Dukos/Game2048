@@ -23,11 +23,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PictureResourceSetTest {
 
 	private static final String IMAGES_DIRECTORY_PATH = "images";
+	
 	@Mock
-	ImageLoader imageLoader;
+	private ImageLoader imageLoader;
 
 	@InjectMocks
-	PictureResourceSet testObject;
+	private PictureResourceSet testObject;
 
 	@Test
 	public void loadImagesFromDirectory_directoryExists_imagesRequestedToLoad() {

@@ -22,16 +22,16 @@ public class IterarorImplementationTest {
 	
 	static class ExpectedResultsForPositions
 	{
-		public final boolean left;
-		public final boolean right;
-		public final boolean bottom;
-		public final boolean upper;
+		private final boolean left;
+		private final boolean right;
+		private final boolean bottom;
+		private final boolean upper;
 		
-		public final Point movedPoint;
+		private final Point movedPoint;
 		
-		public final Point resettedPoint;
+		private final Point resettedPoint;
 		
-		public ExpectedResultsForPositions(boolean left, boolean right, boolean bottom, boolean upper, Point movedPoint, Point resettedPoint)
+		private ExpectedResultsForPositions(boolean left, boolean right, boolean bottom, boolean upper, Point movedPoint, Point resettedPoint)
 		{
 			this.left = left;
 			this.right = right;

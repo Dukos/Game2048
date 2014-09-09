@@ -28,14 +28,14 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class BoardLineMergerTest {
 
-	final int numberOfPoints = 5;
-	final int fixedColumn = 4;
-	final int firstRow = 0;
+	private static final int numberOfPoints = 5;
+	private static final int fixedColumn = 4;
+	private static final int firstRow = 0;
 	
-	final int emptyField = 0;
+	private static final int emptyField = 0;
 	
-	final Point selectedLine = new Point(3,fixedColumn);
-	final Point firstElement = new Point(firstRow, fixedColumn);
+	private static final Point selectedLine = new Point(3,fixedColumn);
+	private static final Point firstElement = new Point(firstRow, fixedColumn);
 	
 	@InjectMocks
 	private BoardLineMerger testObject;

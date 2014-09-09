@@ -17,7 +17,7 @@ public class BoardPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	final GridLayout layout = new GridLayout(ROWS, COLUMNS);
+	private final GridLayout layout = new GridLayout(ROWS, COLUMNS);
 	
 	private ArrayList< ArrayList<PicturePanel> > picturePanels = null;
 

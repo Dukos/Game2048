@@ -16,7 +16,8 @@ import org.junit.Test;
 
 public class MainFrameCreatorTest {
 
-	JFrame frame;
+	private JFrame frame;
+	
 	@Before
 	public void setUp() throws Exception {
 		frame = new MainFrameCreator().createConfiguredMainFrame();
@@ -32,6 +33,7 @@ public class MainFrameCreatorTest {
 			}
 		return null;
 	}
+	
 	@Test
 	public void createStandaloneFrame_noSetup_returnsFrameObject() {
 		assertNotNull(frame);
