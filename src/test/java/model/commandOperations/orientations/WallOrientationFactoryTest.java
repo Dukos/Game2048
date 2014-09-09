@@ -4,12 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.Dimension;
 
-import main.java.model.commandOperations.orientations.IterarorImplementation;
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
-import main.java.model.commandOperations.orientations.ToBottomIteratorImplementation;
-import main.java.model.commandOperations.orientations.ToLeftIteratorImplementation;
-import main.java.model.commandOperations.orientations.ToRightIteratorImplementation;
-import main.java.model.commandOperations.orientations.ToTopIteratorImplementation;
 import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
 
@@ -22,6 +17,8 @@ public class WallOrientationFactoryTest {
 	
 	private WallOrientationFactory testObject;
 	
+	private PointIteratorTypeChecker checker = new PointIteratorTypeChecker();
+	
 	@Before
 	public void setUp() throws Exception {
 		testObject = new WallOrientationFactory(DIMENSIONS);
@@ -33,8 +30,8 @@ public class WallOrientationFactoryTest {
 		PointIteratorsCreator groupIterator = wallOrientation.getLineSelectorIteratorsCreator();
 		PointIteratorsCreator lineIterator = wallOrientation.getLineIteratorsCreator();
 		
-		assertTrue(isHorizontalIterator(groupIterator));
-		assertTrue(isRightIterator(lineIterator));
+		assertTrue(checker.isHorizontalIterator(groupIterator));
+		assertTrue(checker.isRightIterator(lineIterator));
 	}
 	
 	@Test
@@ -43,8 +40,8 @@ public class WallOrientationFactoryTest {
 		PointIteratorsCreator groupIterator = wallOrientation.getLineSelectorIteratorsCreator();
 		PointIteratorsCreator lineIterator = wallOrientation.getLineIteratorsCreator();
 		
-		assertTrue(isHorizontalIterator(groupIterator));
-		assertTrue(isLeftIterator(lineIterator));
+		assertTrue(checker.isHorizontalIterator(groupIterator));
+		assertTrue(checker.isLeftIterator(lineIterator));
 	}
 	
 	@Test
@@ -53,8 +50,8 @@ public class WallOrientationFactoryTest {
 		PointIteratorsCreator groupIterator = wallOrientation.getLineSelectorIteratorsCreator();
 		PointIteratorsCreator lineIterator = wallOrientation.getLineIteratorsCreator();
 		
-		assertTrue(isVerticalIterator(groupIterator));
-		assertTrue(isTopIterator(lineIterator));
+		assertTrue(checker.isVerticalIterator(groupIterator));
+		assertTrue(checker.isTopIterator(lineIterator));
 	}
 	
 	@Test
@@ -63,41 +60,7 @@ public class WallOrientationFactoryTest {
 		PointIteratorsCreator groupIterator = wallOrientation.getLineSelectorIteratorsCreator();
 		PointIteratorsCreator lineIterator = wallOrientation.getLineIteratorsCreator();
 		
-		assertTrue(isVerticalIterator(groupIterator));
-		assertTrue(isBottomIterator(lineIterator));
-	}
-	
-	private boolean isHorizontalIterator(PointIteratorsCreator iterator)
-	{
-		return isBottomIterator(iterator) || isTopIterator(iterator);
-	}
-	
-	private boolean isBottomIterator(PointIteratorsCreator iterator)
-	{
-		return isIteratorOfType(iterator, ToBottomIteratorImplementation.class);
-	}
-	
-	private boolean isTopIterator(PointIteratorsCreator iterator)
-	{
-		return isIteratorOfType(iterator, ToTopIteratorImplementation.class);
-	}
-	
-	private boolean isVerticalIterator(PointIteratorsCreator iterator)
-	{
-		return isLeftIterator(iterator) || isRightIterator(iterator);
-	}
-	
-	private boolean isLeftIterator(PointIteratorsCreator iterator)
-	{
-		return isIteratorOfType(iterator, ToLeftIteratorImplementation.class);
-	}
-	
-	private boolean isRightIterator(PointIteratorsCreator iterator)
-	{
-		return isIteratorOfType(iterator, ToRightIteratorImplementation.class);
-	}
-	
-	private boolean isIteratorOfType(PointIteratorsCreator groupIterator, Class<? extends IterarorImplementation> iterarorImplementationClass) {
-		return groupIterator.getIteratorImplementation().getClass().isAssignableFrom(iterarorImplementationClass);
+		assertTrue(checker.isVerticalIterator(groupIterator));
+		assertTrue(checker.isBottomIterator(lineIterator));
 	}
 }

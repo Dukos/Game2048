@@ -45,14 +45,14 @@ public class BoardLineMoverTest {
 	
 	private Iterator<Point> iteratorSecond;
 	
-	final int numberOfPoints = 5;
-	final int fixedColumn = 4;
-	final int firstRow = 0;
+	private static final int NUMBER_OF_POINTS = 5;
+	private static final int FIXED_COLUMN = 4;
+	private static final int FIRST_ROW = 0;
 	
-	final Point selectedLine = new Point(3,fixedColumn);
-	final Point firstElement = new Point(firstRow, fixedColumn);
-	final Point nonEmptyElementDistant1PointFromWall = new Point(firstRow + 1, fixedColumn);
-	final Point nonEmptyElementDistant2PointsFromWall = new Point(firstRow + 2, fixedColumn);
+	private static final Point SELECTED_LINE = new Point(3,FIXED_COLUMN);
+	private static final Point FIRST_ELEMENT = new Point(FIRST_ROW, FIXED_COLUMN);
+	private static final Point NONEMPTY_ELEMENT_DISTANT_1_POINT_FROM_WALL = new Point(FIRST_ROW + 1, FIXED_COLUMN);
+	private static final Point NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL = new Point(FIRST_ROW + 2, FIXED_COLUMN);
 	
 	@Before
 	public void setUp()throws Exception {
@@ -64,9 +64,9 @@ public class BoardLineMoverTest {
 	@Test
 	public void moveElementsTowardsWall_OneElementOnTheWall_noValuesSwapped()
 	{
-		mockIsFieldEmptyMethod(firstElement);
+		mockIsFieldEmptyMethod(FIRST_ELEMENT);
 		
-		testObject.moveElementsTowardsWall(selectedLine, lineIteratorCreator);	
+		testObject.moveElementsTowardsWall(SELECTED_LINE, lineIteratorCreator);	
 		
 		verify(utils, times(0)).swapValues(any(Point.class), any(Point.class));
 	}
@@ -74,35 +74,35 @@ public class BoardLineMoverTest {
 	@Test
 	public void moveElementsTowardsWall_OneElementDistantFromTheWall_elementMovedTowardsWall()
 	{	
-		mockIsFieldEmptyMethod(nonEmptyElementDistant2PointsFromWall);
+		mockIsFieldEmptyMethod(NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL);
 		
-		when(utils.findFirstFreeFieldBeforeElement(iteratorSecond, nonEmptyElementDistant2PointsFromWall)).thenReturn(firstElement);
+		when(utils.findFirstFreeFieldBeforeElement(iteratorSecond, NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL)).thenReturn(FIRST_ELEMENT);
 		
-		testObject.moveElementsTowardsWall(selectedLine, lineIteratorCreator);	
+		testObject.moveElementsTowardsWall(SELECTED_LINE, lineIteratorCreator);	
 		
-		verify(utils).swapValues(firstElement, nonEmptyElementDistant2PointsFromWall);
+		verify(utils).swapValues(FIRST_ELEMENT, NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL);
 		verify(utils).swapValues(any(Point.class), any(Point.class));
 	}
 	
 	@Test
 	public void moveElementsTowardsWall_TwoElementsOneDistantFromTheWall_elementMovedTowardsWall()
 	{	
-		mockIsFieldEmptyMethod(nonEmptyElementDistant2PointsFromWall, firstElement);
-		when(utils.findFirstFreeFieldBeforeElement(iteratorSecond, nonEmptyElementDistant2PointsFromWall)).thenReturn(firstElement);
+		mockIsFieldEmptyMethod(NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL, FIRST_ELEMENT);
+		when(utils.findFirstFreeFieldBeforeElement(iteratorSecond, NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL)).thenReturn(FIRST_ELEMENT);
 		
-		testObject.moveElementsTowardsWall(selectedLine, lineIteratorCreator);	
+		testObject.moveElementsTowardsWall(SELECTED_LINE, lineIteratorCreator);	
 		
-		verify(utils).swapValues(firstElement, nonEmptyElementDistant2PointsFromWall);
+		verify(utils).swapValues(FIRST_ELEMENT, NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL);
 		verify(utils).swapValues(any(Point.class), any(Point.class));
 	}
 	
 	@Test
 	public void moveElementsTowardsWall_TwoElementsBothNearTheWall_noValuesSwapped()
 	{
-		mockIsFieldEmptyMethod(nonEmptyElementDistant1PointFromWall, firstElement);
-		when(utils.findFirstFreeFieldBeforeElement(iteratorSecond, nonEmptyElementDistant1PointFromWall)).thenReturn(null);
+		mockIsFieldEmptyMethod(NONEMPTY_ELEMENT_DISTANT_1_POINT_FROM_WALL, FIRST_ELEMENT);
+		when(utils.findFirstFreeFieldBeforeElement(iteratorSecond, NONEMPTY_ELEMENT_DISTANT_1_POINT_FROM_WALL)).thenReturn(null);
 		
-		testObject.moveElementsTowardsWall(selectedLine, lineIteratorCreator);	
+		testObject.moveElementsTowardsWall(SELECTED_LINE, lineIteratorCreator);	
 		
 		verify(utils, times(0)).swapValues(any(Point.class), any(Point.class));
 	}
@@ -116,12 +116,12 @@ public class BoardLineMoverTest {
 	@SuppressWarnings("unchecked")
 	private void mockLineIteratorsCreatorAndIteratorSecond()
 	{
-		ArrayList<Point> points = createPointsForEachElementInRow(firstRow, fixedColumn, numberOfPoints);
+		ArrayList<Point> points = createPointsForEachElementInRow(FIRST_ROW, FIXED_COLUMN, NUMBER_OF_POINTS);
 		Iterator<Point> iteratorFirst = mockIterator(points);
 		iteratorSecond = mockIterator(new ArrayList<Point>());
 		
-		when(lineIteratorCreator.firstElement(any(Point.class))).thenReturn(firstElement);
-		when(lineIteratorCreator.iterator(firstElement)).thenReturn(iteratorFirst, iteratorSecond);
+		when(lineIteratorCreator.firstElement(any(Point.class))).thenReturn(FIRST_ELEMENT);
+		when(lineIteratorCreator.iterator(FIRST_ELEMENT)).thenReturn(iteratorFirst, iteratorSecond);
 	}
 
 }
