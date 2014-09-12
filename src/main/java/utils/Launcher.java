@@ -1,44 +1,34 @@
 package main.java.utils;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import main.java.view.MainFrameCreator;
 
 
 public class Launcher {
 	
 	public static void main(String[] args) {
-		instance = new Launcher(args);
-		
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+		new Launcher().launch();
+	}
+	
+	public void launch()
+	{
+		invokeLater(new Runnable() {
 			public void run() {
-				new MainFrameCreator().createConfiguredMainFrame();
+				getMainFrameCreator().createConfiguredMainFrame();
 			}
 		});
 	}
 	
-	public Launcher getInstance()
+	protected void invokeLater(Runnable runnable)
 	{
-		return instance;
+		javax.swing.SwingUtilities.invokeLater(runnable);
 	}
 	
-	public String getApplicationPath()
+	protected MainFrameCreator getMainFrameCreator()
 	{
-		return applicationLaunchArguments.get(0);
-	}
-	
-	public List<String> getApplicationLaunchArguments() {
-		return Collections.unmodifiableList(applicationLaunchArguments);
+		return new MainFrameCreator();
 	}
 
-	protected Launcher(String[] args) {
-		applicationLaunchArguments = Arrays.asList(args);
+	protected Launcher() {
 	}
-	
-	private final List<String> applicationLaunchArguments;
-	
-	private static Launcher instance = null;
 	
 }
