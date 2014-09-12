@@ -1,6 +1,6 @@
 package main.java.utils;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,12 +10,13 @@ import main.java.view.MainFrameCreator;
 public class Launcher {
 	
 	public static void main(String[] args) {
+		instance = new Launcher(args);
+		
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new MainFrameCreator().createConfiguredMainFrame();
 			}
 		});
-		instance = new Launcher(args);
 	}
 	
 	public Launcher getInstance()
@@ -33,17 +34,11 @@ public class Launcher {
 	}
 
 	protected Launcher(String[] args) {
-		applicationLaunchArguments = convertLaunchArguments(args);
-	}
-
-	private List<String> convertLaunchArguments(String[] args) {
-		List<String> list = new ArrayList<String>(); 
-		for(String string : args)
-			list.add(string);
-		return list;
+		applicationLaunchArguments = Arrays.asList(args);
 	}
 	
-	private List<String> applicationLaunchArguments;
+	private final List<String> applicationLaunchArguments;
 	
-	private static Launcher instance; 
+	private static Launcher instance = null;
+	
 }
