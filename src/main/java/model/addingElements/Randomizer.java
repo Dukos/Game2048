@@ -12,10 +12,6 @@ public class Randomizer {
 	private final BoardArea area;
 	
 	private final Random random;
-
-	public Randomizer(BoardArea area) {
-		this(area, new Random());
-	}
 	
 	public Randomizer(BoardArea area, Random random)
 	{

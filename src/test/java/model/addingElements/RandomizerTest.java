@@ -41,18 +41,27 @@ public class RandomizerTest {
 	private Randomizer testObject;
 	
 	@Test
-	public void getRandomField_noSetup_callsNextInProperRange() {
+	public void getRandomField_noSetup_requestsRandomValuesInRowsRange() {
+		configureBoardAreaMock(area, ROWS, COLUMNS);
+		when(random.nextInt(anyInt())).thenReturn(FIRST_NEXT_INT_RANDOM_VALUE, SECOND_NEXT_INT_RANDOM_VALUE);
+		
+		testObject.getRandomField();
+		
+		verify(random).nextInt(COLUMNS);
+	}
+	
+	@Test
+	public void getRandomField_noSetup_requestsRandomValuesInColumnsRange() {
 		configureBoardAreaMock(area, ROWS, COLUMNS);
 		when(random.nextInt(anyInt())).thenReturn(FIRST_NEXT_INT_RANDOM_VALUE, SECOND_NEXT_INT_RANDOM_VALUE);
 		
 		testObject.getRandomField();
 		
 		verify(random).nextInt(ROWS);
-		verify(random).nextInt(COLUMNS);
 	}
 	
 	@Test
-	public void getRandomField_noSetup_returnsCorrectPoint() {
+	public void getRandomField_noSetup_createsPointWithRandomValues() {
 		configureBoardAreaMock(area, ROWS, COLUMNS);
 		when(random.nextInt(anyInt())).thenReturn(FIRST_NEXT_INT_RANDOM_VALUE, SECOND_NEXT_INT_RANDOM_VALUE);
 		
@@ -61,7 +70,7 @@ public class RandomizerTest {
 	}
 	
 	@Test
-	public void setRandomFieldValue_noSetup_callsNextInProperRange() {
+	public void setRandomFieldValue_noSetup_requestsRandomValueInMaxValueRange() {
 		configureBoardAreaMock(area, ROWS, COLUMNS);
 		when(random.nextInt(anyInt())).thenReturn(FIRST_NEXT_INT_RANDOM_VALUE);
 		final Point anyPoint = new Point(0, 0);
@@ -72,10 +81,10 @@ public class RandomizerTest {
 	}
 	
 	@Test
-	public void setRandomFieldValue_noSetup_modifiesCorrectPoint() {
+	public void setRandomFieldValue_point2x3_modifiesSelectedPointWithCorrectRandomValue() {
 		configureBoardAreaMock(area, ROWS, COLUMNS);
 		when(random.nextInt(anyInt())).thenReturn(FIRST_NEXT_INT_RANDOM_VALUE);
-		final Point selectedPoint = new Point(0, 0);
+		final Point selectedPoint = new Point(2, 3);
 		
 		testObject.setRandomFieldValue(selectedPoint);
 		
