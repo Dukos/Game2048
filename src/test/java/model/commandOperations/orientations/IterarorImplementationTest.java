@@ -2,7 +2,7 @@ package test.java.model.commandOperations.orientations;
 
 import static org.junit.Assert.assertEquals;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 import java.awt.Point;
 import java.util.Arrays;
 import java.util.Collection;
@@ -97,7 +97,7 @@ public class IterarorImplementationTest {
 	
 	@Test
 	public void isIndexInRange_pointObjectPassed_dimensionsLeftUnchanged() {
-		final Dimension passedDimensions = (Dimension)dimensions.clone();
+		final Dimension passedDimensions = new Dimension(dimensions);
 		testObject.isIndexInRange(new Point(), passedDimensions);
 		assertEquals(passedDimensions, dimensions);
 	}
@@ -118,7 +118,7 @@ public class IterarorImplementationTest {
 	
 	@Test
 	public void resetIndex_pointObjectPassed_dimensionsLeftUnchanged() {
-		final Dimension passedDimensions = (Dimension)dimensions.clone();
+		final Dimension passedDimensions = new Dimension(dimensions);
 		testObject.resetIndex(new Point(), passedDimensions);
 		assertEquals(passedDimensions, dimensions);
 	}

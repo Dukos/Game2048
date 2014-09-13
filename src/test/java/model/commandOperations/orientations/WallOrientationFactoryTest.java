@@ -2,7 +2,7 @@ package test.java.model.commandOperations.orientations;
 
 import static org.junit.Assert.assertTrue;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 import main.java.model.commandOperations.orientations.WallOrientation;
@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class WallOrientationFactoryTest {
 
-	private final static Dimension DIMENSIONS = new Dimension();
+	private final static Dimension DIMENSIONS = new Dimension(1, 1);
 	
 	private WallOrientationFactory testObject;
 	

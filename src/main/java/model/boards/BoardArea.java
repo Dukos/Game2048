@@ -1,25 +1,22 @@
 package main.java.model.boards;
 
+import main.java.model.boards.Dimension;
+
 public class BoardArea implements ReadOnlyBoardArea {
 
-	private static final int ROWS = 5;
-	private static final int COLUMNS = 5;
 	
-	private int[][] area = new int[ROWS][COLUMNS];
+	private static final Dimension dimensions = new Dimension(5, 5);
+	
+	private int[][] area = new int[dimensions.width][dimensions.height];
 	
 	@Override
-	public int getFieldValue(int row, int column) {
-		return area[row][column];
+	public int getFieldValue(int x, int y) {
+		return area[x][y];
 	}
 	
 	@Override
-	public int getRows() {
-		return ROWS;
-	}
-
-	@Override
-	public int getColumns() {
-		return COLUMNS;
+	public Dimension getDimensions() {
+		return dimensions;
 	}
 	
 	public void setFieldValue(int x, int y, int version) {

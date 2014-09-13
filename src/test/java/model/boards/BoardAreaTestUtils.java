@@ -9,15 +9,16 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
-
+import main.java.model.boards.Dimension;
 import main.java.model.boards.ReadOnlyBoardArea;
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
+import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
+
 public class BoardAreaTestUtils {
 	public static void configureBoardAreaMock(ReadOnlyBoardArea area, int rows, int columns, FixedValue...fixedValues) {
-		when(area.getRows()).thenReturn(rows);
-		when(area.getColumns()).thenReturn(columns);
+		
+		when(area.getDimensions()).thenReturn(new Dimension(rows, columns));
 		
 		when(area.getFieldValue(anyInt(), anyInt())).thenReturn(0);
 		for(FixedValue fv : fixedValues)

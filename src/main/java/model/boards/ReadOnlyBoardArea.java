@@ -1,10 +1,10 @@
 package main.java.model.boards;
 
+import main.java.model.boards.Dimension;
+
 
 public interface ReadOnlyBoardArea {
 	int getFieldValue(int row, int column);
 	
-	int getRows();
-	
-	int getColumns();
+	Dimension getDimensions();
 }

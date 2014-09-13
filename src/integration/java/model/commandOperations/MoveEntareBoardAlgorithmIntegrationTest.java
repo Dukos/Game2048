@@ -2,7 +2,7 @@ package integration.java.model.commandOperations;
 
 import static org.junit.Assert.assertEquals;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
@@ -26,7 +26,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		Dimension dimensions = new Dimension(area.getRows(), area.getColumns());
+		Dimension dimensions = area.getDimensions();
 		orientation = new WallOrientationFactory(dimensions).forLeftCommand();
 	}
 
@@ -72,7 +72,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 	}
 
 	private void checkRow(final int fixedY, final int[] expectedLastRow) {
-		for(int x = 0; x < area.getColumns(); x++)
+		for(int x = 0; x < area.getDimensions().height; x++)
 		{
 			assertEquals(area.getFieldValue(x, fixedY), expectedLastRow[x]);
 		}

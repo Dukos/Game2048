@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.Random;
 
 import main.java.model.boards.BoardArea;
+import main.java.model.boards.Dimension;
 
 public class Randomizer {
 
@@ -20,11 +21,10 @@ public class Randomizer {
 	}
 
 	public Point getRandomField() {
-		final int maxRows = area.getRows();
-		final int maxColumns = area.getColumns();
+		final Dimension dimensions = area.getDimensions();
 
-		final int selectedRow = random.nextInt(maxRows);
-		final int selectedColumn = random.nextInt(maxColumns);
+		final int selectedRow = random.nextInt(dimensions.width);
+		final int selectedColumn = random.nextInt(dimensions.height);
 
 		return new Point(selectedRow, selectedColumn);
 	}

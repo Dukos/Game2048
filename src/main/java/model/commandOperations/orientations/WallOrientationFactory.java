@@ -1,6 +1,7 @@
 package main.java.model.commandOperations.orientations;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
+
 
 public class WallOrientationFactory {
 	

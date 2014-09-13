@@ -3,6 +3,7 @@ package main.java.model.addingElements;
 import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
+import main.java.model.boards.Dimension;
 
 public class FreeFieldFinder {
 
@@ -13,17 +14,16 @@ public class FreeFieldFinder {
 	}
 
 	public Point findFirstFreeField(final Point startPoint) {
-		final int columns = area.getColumns();
-		final int rows = area.getRows();
+		final Dimension dimension = area.getDimensions();
 
 		int x = startPoint.x;
 		int y = startPoint.y;
 		
 		while(!isFieldFree(x, y))
 		{
-			y = circularAdd(y, rows);
+			y = circularAdd(y, dimension.width);
 			if(y == 0)
-				x = circularAdd(x, columns);
+				x = circularAdd(x, dimension.height);
 			if(isCycleDetected(startPoint, x, y))
 				return null;
 		}

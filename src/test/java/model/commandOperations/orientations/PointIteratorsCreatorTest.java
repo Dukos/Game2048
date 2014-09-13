@@ -6,7 +6,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.when;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 import java.awt.Point;
 import java.util.Iterator;
 

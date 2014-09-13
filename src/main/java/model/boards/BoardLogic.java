@@ -1,6 +1,6 @@
 package main.java.model.boards;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 import java.util.Random;
 
 import main.java.model.addingElements.ElementsAdder;
@@ -38,7 +38,7 @@ public class BoardLogic {
 	public BoardLogic()
 	{
 		elementsAdder = new ElementsAdder(new Randomizer(area, new Random()), new FreeFieldFinder(area));
-		WallOrientationFactory factory = new WallOrientationFactory(new Dimension(area.getRows(), area.getColumns()));
+		WallOrientationFactory factory = new WallOrientationFactory(area.getDimensions());
 		leftCommandOrientation = factory.forLeftCommand();
 		rightCommandOrientation = factory.forRightCommand();
 		upCommandOrientation = factory.forUpCommand();

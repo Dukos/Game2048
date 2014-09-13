@@ -1,10 +1,9 @@
 package main.java.model.commandOperations.orientations;
 
-import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Iterator;
 
-import main.java.model.boards.ReadOnlyBoardArea;
+import main.java.model.boards.Dimension;
 
 public class PointIteratorsCreator {
 	

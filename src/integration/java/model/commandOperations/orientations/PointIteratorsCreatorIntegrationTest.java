@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 import java.awt.Point;
 import java.util.Iterator;
 

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
-import java.awt.Dimension;
+import main.java.model.boards.Dimension;
 
 import main.java.model.addingElements.ElementsAdder;
 import main.java.model.boards.BoardLogic;
