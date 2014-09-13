@@ -11,37 +11,28 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import main.java.model.boards.BoardArea;
 import main.java.model.commandOperations.BoardLineMover;
 import main.java.model.commandOperations.BoardLineUtils;
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BoardLineMoverTest {
-
-	class BoardLineMoverTested extends BoardLineMover
-	{
-		BoardLineMoverTested()
-		{
-			super(null);
-		}
-		@Override
-		protected BoardLineUtils createUtils(BoardArea area)
-		{
-			return utils;
-		}
-	}
-	private BoardLineMover testObject;
 	
 	@Mock
 	private BoardLineUtils utils;
 
 	@Mock
 	private PointIteratorsCreator lineIteratorCreator;
+	
+	@InjectMocks
+	private BoardLineMover testObject;
 	
 	private Iterator<Point> iteratorSecond;
 	
@@ -55,9 +46,7 @@ public class BoardLineMoverTest {
 	private static final Point NONEMPTY_ELEMENT_DISTANT_2_POINTS_FROM_WALL = new Point(FIRST_ROW + 2, FIXED_COLUMN);
 	
 	@Before
-	public void setUp()throws Exception {
-		MockitoAnnotations.initMocks(this);
-		testObject = new BoardLineMoverTested();
+	public void setUp() throws Exception {
 		mockLineIteratorsCreatorAndIteratorSecond();
 	}
 

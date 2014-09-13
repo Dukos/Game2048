@@ -3,7 +3,6 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
-import main.java.model.boards.BoardArea;
 import main.java.model.commandOperations.orientations.WallOrientation;
 
 public class MoveEntireBoardAlgorithm {
@@ -12,10 +11,10 @@ public class MoveEntireBoardAlgorithm {
 	
 	private final BoardLineMerger boardLineMerger;
 	
-	public MoveEntireBoardAlgorithm(BoardArea area)
+	public MoveEntireBoardAlgorithm(BoardLineMover boardLineMover, BoardLineMerger boardLineMerger)
 	{
-		boardLineMover = new BoardLineMover(area);
-		boardLineMerger = new BoardLineMerger(area);
+		this.boardLineMover = boardLineMover;
+		this.boardLineMerger = boardLineMerger;
 	}
 	
 	public void makeMove(WallOrientation moveOrientation) {

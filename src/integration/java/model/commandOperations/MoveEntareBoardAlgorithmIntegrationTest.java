@@ -6,6 +6,9 @@ import main.java.model.boards.Dimension;
 import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
+import main.java.model.commandOperations.BoardLineMerger;
+import main.java.model.commandOperations.BoardLineMover;
+import main.java.model.commandOperations.BoardLineUtils;
 import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
 import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
@@ -22,7 +25,9 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 	
 	private WallOrientation orientation;
 	
-	private MoveEntireBoardAlgorithm testObject = new MoveEntireBoardAlgorithm(area);
+	private BoardLineUtils utils = new BoardLineUtils(area);
+	
+	private MoveEntireBoardAlgorithm testObject = new MoveEntireBoardAlgorithm(new BoardLineMover(utils), new BoardLineMerger(area, utils));
 	
 	@Before
 	public void setUp() throws Exception {
@@ -72,7 +77,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 	}
 
 	private void checkRow(final int fixedY, final int[] expectedLastRow) {
-		for(int x = 0; x < area.getDimensions().height; x++)
+		for(int x = 0; x < area.getDimensions().width; x++)
 		{
 			assertEquals(area.getFieldValue(x, fixedY), expectedLastRow[x]);
 		}

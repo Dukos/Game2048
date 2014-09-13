@@ -3,15 +3,14 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
-import main.java.model.boards.BoardArea;
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
 public class BoardLineMover {
 	
 	private BoardLineUtils utils;
 
-	public BoardLineMover(BoardArea area) {
-		utils = createUtils(area);
+	public BoardLineMover(BoardLineUtils utils) {
+		this.utils = utils;
 	}
 
 	public void moveElementsTowardsWall(Point selectedLine, PointIteratorsCreator lineIteratorCreator) {
@@ -30,10 +29,5 @@ public class BoardLineMover {
 		Point firstFreeField = utils.findFirstFreeFieldBeforeElement(iter, elementToMove);
 		if (firstFreeField != null)
 			utils.swapValues(firstFreeField, elementToMove);
-	}
-	
-	protected BoardLineUtils createUtils(BoardArea area)
-	{
-		return new BoardLineUtils(area);
 	}
 }

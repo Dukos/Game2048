@@ -1,21 +1,12 @@
 package main.java.model.boards;
 
-import java.util.Random;
-
 import main.java.model.addingElements.ElementsAdder;
-import main.java.model.addingElements.FreeFieldFinder;
-import main.java.model.addingElements.Randomizer;
-import main.java.model.commandOperations.CommandListenerImpl;
-import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
-import main.java.model.commandOperations.orientations.WallOrientationFactory;
+import main.java.model.commandOperations.CommandsListener;
 
 public class BoardLogic {
-
-	private BoardArea area = new BoardArea();
-	
 	private ElementsAdder elementsAdder;
 	
-	private CommandListenerImpl commandListener = new CommandListenerImpl(new MoveEntireBoardAlgorithm(area), new WallOrientationFactory(area.getDimensions()));
+	private CommandsListener commandListener;
 
 	public void applyRandomObject() {
 		if(elementsAdder.tryAddNewElement())
@@ -23,12 +14,12 @@ public class BoardLogic {
 	}
 
 	private void gameOver() {
-		//TODO
 	}
 
-	public BoardLogic()
+	public BoardLogic(ElementsAdder elementsAdder, CommandsListener commandListener)
 	{
-		elementsAdder = new ElementsAdder(new Randomizer(area, new Random()), new FreeFieldFinder(area));
+		this.elementsAdder = elementsAdder;
+		this.commandListener = commandListener;
 	}
 	
 }

@@ -9,7 +9,7 @@ public class BoardLineUtils {
 	
 	private final BoardArea area; 
 	
-	BoardLineUtils(BoardArea area) {
+	public BoardLineUtils(BoardArea area) {
 		this.area = area;
 	}
 	

@@ -11,11 +11,6 @@ public class BoardLineMerger {
 	private final BoardArea area;
 
 	private final BoardLineUtils utils;
-
-	public BoardLineMerger(BoardArea area) {
-		this.area = area;
-		this.utils = new BoardLineUtils(area);
-	}
 	
 	public BoardLineMerger(BoardArea area, BoardLineUtils utils)
 	{
