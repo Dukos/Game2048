@@ -30,6 +30,6 @@ public class WallOrientation {
 	
 	public PointIteratorsCreator getLineIteratorsCreator()
 	{
-		return lineSelectorIterator;
+		return lineIterator;
 	}
 }

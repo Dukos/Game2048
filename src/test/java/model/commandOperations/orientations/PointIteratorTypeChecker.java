@@ -10,30 +10,30 @@ import main.java.model.commandOperations.orientations.ToTopIteratorImplementatio
 public class PointIteratorTypeChecker {
 	public boolean isHorizontalIterator(PointIteratorsCreator iterator)
 	{
-		return isBottomIterator(iterator) || isTopIterator(iterator);
+		return isToBottomIterator(iterator) || isToTopIterator(iterator);
 	}
 	
-	public boolean isBottomIterator(PointIteratorsCreator iterator)
+	public boolean isToBottomIterator(PointIteratorsCreator iterator)
 	{
 		return isIteratorOfType(iterator, ToBottomIteratorImplementation.class);
 	}
 	
-	public boolean isTopIterator(PointIteratorsCreator iterator)
+	public boolean isToTopIterator(PointIteratorsCreator iterator)
 	{
 		return isIteratorOfType(iterator, ToTopIteratorImplementation.class);
 	}
 	
 	public boolean isVerticalIterator(PointIteratorsCreator iterator)
 	{
-		return isLeftIterator(iterator) || isRightIterator(iterator);
+		return isToLeftIterator(iterator) || isToRightIterator(iterator);
 	}
 	
-	public boolean isLeftIterator(PointIteratorsCreator iterator)
+	public boolean isToLeftIterator(PointIteratorsCreator iterator)
 	{
 		return isIteratorOfType(iterator, ToLeftIteratorImplementation.class);
 	}
 	
-	public boolean isRightIterator(PointIteratorsCreator iterator)
+	public boolean isToRightIterator(PointIteratorsCreator iterator)
 	{
 		return isIteratorOfType(iterator, ToRightIteratorImplementation.class);
 	}
