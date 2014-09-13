@@ -69,7 +69,7 @@ public class FreeFieldFinderTest {
 	}
 
 	@Test
-	public void findFirstFreeField_startPoint0x0AndPointsInFirstColumnReserved_returnsPoint0x1() {
+	public void findFirstFreeField_startPoint0x0AndPointsInFirstColumnReserved_returnsPoint1x0() {
 		FixedValue[] fixedValues = {
 				new FixedValue(0, 0, VAULE_RESERVED),
 				new FixedValue(0, 1, VAULE_RESERVED),

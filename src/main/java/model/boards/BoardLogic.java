@@ -3,6 +3,8 @@ package main.java.model.boards;
 import java.awt.Dimension;
 
 import main.java.model.addingElements.ElementsAdder;
+import main.java.model.addingElements.FreeFieldFinder;
+import main.java.model.addingElements.Randomizer;
 import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
 import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
@@ -11,7 +13,7 @@ public class BoardLogic {
 
 	private BoardArea area = new BoardArea();
 	
-	private ElementsAdder elementsAdder = new ElementsAdder(area);
+	private ElementsAdder elementsAdder;
 	
 	private MoveEntireBoardAlgorithm moveLeftAlgorithm = new MoveEntireBoardAlgorithm(area);
 	
@@ -34,6 +36,7 @@ public class BoardLogic {
 
 	public BoardLogic()
 	{
+		elementsAdder = new ElementsAdder(new Randomizer(area), new FreeFieldFinder(area));
 		WallOrientationFactory factory = new WallOrientationFactory(new Dimension(area.getRows(), area.getColumns()));
 		leftCommandOrientation = factory.forLeftCommand();
 		rightCommandOrientation = factory.forRightCommand();
