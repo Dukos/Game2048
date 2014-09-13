@@ -21,7 +21,7 @@ public class BoardAreaTestUtils {
 		
 		when(area.getFieldValue(anyInt(), anyInt())).thenReturn(0);
 		for(FixedValue fv : fixedValues)
-			when(area.getFieldValue(fv.row, fv.column)).thenReturn(fv.value);
+			when(area.getFieldValue(fv.x, fv.y)).thenReturn(fv.value);
 	}
 	
 	public static Iterator<Point> mockIterator(ArrayList<Point> nextResponses) {
@@ -42,8 +42,8 @@ public class BoardAreaTestUtils {
 	
 	public static PointIteratorsCreator mockIteratorCreator(ArrayList<Point> nextResponses) {
 		PointIteratorsCreator iteratorsCreator = mock(PointIteratorsCreator.class);
-		
 		Point firstElement = nextResponses.get(0);
+		
 		Iterator<Point> iterator = mockIterator(nextResponses);
 		when(iteratorsCreator.firstElement(any(Point.class))).thenReturn(firstElement);
 		when(iteratorsCreator.iterator(any(Point.class))).thenReturn(iterator);

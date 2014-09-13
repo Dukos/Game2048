@@ -10,11 +10,17 @@ public class BoardLineMerger {
 
 	private final BoardArea area;
 
-	private BoardLineUtils utils;
+	private final BoardLineUtils utils;
 
 	public BoardLineMerger(BoardArea area) {
 		this.area = area;
 		this.utils = new BoardLineUtils(area);
+	}
+	
+	public BoardLineMerger(BoardArea area, BoardLineUtils utils)
+	{
+		this.area = area;
+		this.utils = utils;
 	}
 
 	public void mergeMovedElementsTowardsWall(Point p,
@@ -39,8 +45,8 @@ public class BoardLineMerger {
 
 	private void tryMergePair(Point first, Point second,
 			PointIteratorsCreator lineIterator) {
-		int firstValue = area.getFieldValue(first.x, first.y);
-		int secondValue = area.getFieldValue(second.x, second.y);
+		final int firstValue = area.getFieldValue(first.x, first.y);
+		final int secondValue = area.getFieldValue(second.x, second.y);
 
 		if (firstValue == secondValue) {
 			area.setFieldValue(first.x, first.y, firstValue + 1);

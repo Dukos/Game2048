@@ -38,29 +38,29 @@ public class MoveLeftAlgorithmTest {
 	
 	@Test
 	public void makeMove_twoSameItemsInSameRowOnBoardArea_bothItemsMovedToTheLeftAndMerged() {
-		area.setFieldValue(fixedValue2.row, fixedValue2.column, fixedValue2.value);
-		area.setFieldValue(fixedValue2.row, fixedValue2.column + 1, fixedValue2.value);
+		area.setFieldValue(fixedValue2.x, fixedValue2.y, fixedValue2.value);
+		area.setFieldValue(fixedValue2.x, fixedValue2.y + 1, fixedValue2.value);
 		
 		testObject.makeMove(orientation);
 		
-		assertEquals(area.getFieldValue(fixedValue2.row, fixedValue2.column), 0);
-		assertEquals(area.getFieldValue(fixedValue2.row, fixedValue2.column + 1), 0);
+		assertEquals(area.getFieldValue(fixedValue2.x, fixedValue2.y), 0);
+		assertEquals(area.getFieldValue(fixedValue2.x, fixedValue2.y + 1), 0);
 		
-		assertEquals(area.getFieldValue(fixedValue2.row, 0), fixedValue2.value + 1);
+		assertEquals(area.getFieldValue(fixedValue2.x, 0), fixedValue2.value + 1);
 	}
 	
 	@Test
 	public void makeMove_threeSameItemsInSameRowOnBoardArea_allItemsMovedToTheLeftAndOnePairMerged() {
-		area.setFieldValue(fixedValue2.row, fixedValue2.column, fixedValue2.value);
-		area.setFieldValue(fixedValue2.row, fixedValue2.column + 1, fixedValue2.value);
-		area.setFieldValue(fixedValue2.row, fixedValue2.column - 2, fixedValue2.value);
+		area.setFieldValue(fixedValue2.x, fixedValue2.y, fixedValue2.value);
+		area.setFieldValue(fixedValue2.x, fixedValue2.y + 1, fixedValue2.value);
+		area.setFieldValue(fixedValue2.x, fixedValue2.y - 2, fixedValue2.value);
 		
 		testObject.makeMove(orientation);
 		
-		assertEquals(area.getFieldValue(fixedValue2.row, fixedValue2.column), 0);
-		assertEquals(area.getFieldValue(fixedValue2.row, fixedValue2.column + 1), 0);
+		assertEquals(area.getFieldValue(fixedValue2.x, fixedValue2.y), 0);
+		assertEquals(area.getFieldValue(fixedValue2.x, fixedValue2.y + 1), 0);
 		
-		assertEquals(area.getFieldValue(fixedValue2.row, 0), fixedValue2.value + 1);
-		assertEquals(area.getFieldValue(fixedValue2.row, 1), fixedValue2.value);
+		assertEquals(area.getFieldValue(fixedValue2.x, 0), fixedValue2.value + 1);
+		assertEquals(area.getFieldValue(fixedValue2.x, 1), fixedValue2.value);
 	}
 }
