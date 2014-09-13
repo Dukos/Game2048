@@ -5,9 +5,9 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
 import main.java.model.boards.Dimension;
+import main.java.model.commandOperations.CommandsListener;
 
 import main.java.model.addingElements.ElementsAdder;
-import main.java.model.boards.BoardLogic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,7 @@ public class BoardLogicTest {
 	private static final int FIXED_ROW_VALUE = 3;
 	
 	@InjectMocks
-	private BoardLogic testObject;
+	private CommandsListener testObject;
 	
 	@Mock
 	private ElementsAdder randomizer;
@@ -39,6 +39,6 @@ public class BoardLogicTest {
 	
 	@Test
 	public void commandLeft_cleanBoardArea_nothingHappens() {
-		testObject.commandLeft();
+		testObject.left();
 	}
 }
