@@ -54,27 +54,3 @@ public class PointIteratorsCreator {
 		};
 	}
 }
-
-
-class ToBottomPointIterator implements Iterator<Integer>
-{
-	private ReadOnlyBoardArea area;
-	private Point currentPosition;
-	@Override
-	public boolean hasNext() {
-		return currentPosition.y + 1 < area.getRows();
-	}
-
-	@Override
-	public Integer next() {
-		currentPosition.y += 1;
-		return area.getFieldValue(currentPosition.x, currentPosition.y);
-	}
-
-	@Override
-	public void remove() {
-		throw new UnsupportedOperationException();
-		
-	}
-	
-}

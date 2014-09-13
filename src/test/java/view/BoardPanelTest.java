@@ -20,7 +20,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BoardPanelTest {
-	
+
 	private static final int FIRST_ROW_INDEX = 0;
 	private static final int FIRST_COLUMN_INDEX = 0;
 
@@ -29,12 +29,12 @@ public class BoardPanelTest {
 
 	private static final int LAST_COLUMN_INDEX = COLUMNS - 1;
 	private static final int LAST_ROW_INDEX = ROWS - 1;
-	
+
 	private static final int CONFIGURED_VERSION = 2;
-	
+
 	@InjectMocks
 	private BoardPanel testObject;
-	
+
 	@Mock
 	private ReadOnlyBoardArea area;
 
@@ -42,12 +42,11 @@ public class BoardPanelTest {
 	public void constructor_noSetup_sizeIs500x500() {
 		assertEquals(testObject.getPreferredSize(), new Dimension(500, 500));
 	}
-	
+
 	@Test
-	public void constructor_noSetup_containsGridLayout5x5()
-	{
+	public void constructor_noSetup_containsGridLayout5x5() {
 		GridLayout layout = null;
-		if(testObject.getLayout() instanceof GridLayout)
+		if (testObject.getLayout() instanceof GridLayout)
 			layout = (GridLayout) testObject.getLayout();
 		assertNotNull(layout);
 		assertEquals(layout.getRows(), ROWS);
@@ -85,12 +84,13 @@ public class BoardPanelTest {
 				LAST_COLUMN_INDEX);
 		assertNotNull(picture);
 	}
-	
+
 	@Test
 	public void updatePanel_bottomRightComponentVersionUpdated_componentUpdated() {
 		when(area.getFieldValue(anyInt(), anyInt())).thenReturn(0);
-		when(area.getFieldValue(LAST_ROW_INDEX, LAST_COLUMN_INDEX)).thenReturn(CONFIGURED_VERSION);
-		
+		when(area.getFieldValue(LAST_ROW_INDEX, LAST_COLUMN_INDEX)).thenReturn(
+				CONFIGURED_VERSION);
+
 		testObject.updatePicturesVersions(area);
 		assertEquals(testObject.getPicture(LAST_ROW_INDEX, LAST_COLUMN_INDEX)
 				.getPictureVersion(), CONFIGURED_VERSION);

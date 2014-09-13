@@ -15,10 +15,8 @@ public class ImageLoader {
 		if(APPLICATION_PATH == null)
 			APPLICATION_PATH = getUserDir();
 		
-		BufferedImage myPicture;
 		try {
-			myPicture = loadBufferedImage(new File(APPLICATION_PATH + "/" + relativePath));
-			return new ImageIcon(myPicture);
+			return loadIcon(APPLICATION_PATH + "/" + relativePath);
 		} catch (IOException e) {
 			throw new RuntimeException();
 		}
@@ -29,9 +27,10 @@ public class ImageLoader {
 		return System.getProperty("user.dir");
 	}
 	
-	protected BufferedImage loadBufferedImage(File file) throws IOException
+	protected ImageIcon loadIcon(String filePath) throws IOException
 	{
-		return ImageIO.read(file);
+		BufferedImage img = ImageIO.read(new File(filePath));
+		return new ImageIcon(img);
 	}
 
 }
