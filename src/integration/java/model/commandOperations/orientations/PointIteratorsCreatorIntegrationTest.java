@@ -1,4 +1,4 @@
-package test.java.model.commandOperations.orientations;
+package integration.java.model.commandOperations.orientations;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
