@@ -22,12 +22,12 @@ public class WallOrientationFactory {
 	
 	public WallOrientation forLeftCommand()
 	{
-		return new WallOrientation(toBottomIterator, toLeftIterator);
+		return new WallOrientation(toBottomIterator, toRightIterator);
 	}
 	
 	public WallOrientation forRightCommand()
 	{
-		return new WallOrientation(toBottomIterator, toRightIterator);
+		return new WallOrientation(toBottomIterator, toLeftIterator);
 	}
 	
 	public WallOrientation forUpCommand()

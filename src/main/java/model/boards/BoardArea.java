@@ -22,7 +22,7 @@ public class BoardArea implements ReadOnlyBoardArea {
 		return COLUMNS;
 	}
 	
-	public void setFieldValue(int row, int column, int version) {
-		area[row][column] = version;
+	public void setFieldValue(int x, int y, int version) {
+		area[x][y] = version;
 	}
 }

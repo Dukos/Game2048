@@ -31,7 +31,7 @@ public class WallOrientationFactoryTest {
 		PointIteratorsCreator lineIterator = wallOrientation.getLineIteratorsCreator();
 		
 		assertTrue(checker.isHorizontalIterator(groupIterator));
-		assertTrue(checker.isToLeftIterator(lineIterator));
+		assertTrue(checker.isToRightIterator(lineIterator));
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class WallOrientationFactoryTest {
 		PointIteratorsCreator lineIterator = wallOrientation.getLineIteratorsCreator();
 		
 		assertTrue(checker.isHorizontalIterator(groupIterator));
-		assertTrue(checker.isToRightIterator(lineIterator));
+		assertTrue(checker.isToLeftIterator(lineIterator));
 	}
 	
 	@Test
