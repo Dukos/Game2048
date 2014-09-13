@@ -5,10 +5,11 @@ import static org.mockito.AdditionalMatchers.gt;
 import static org.mockito.AdditionalMatchers.leq;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static test.java.model.boards.BoardAreaTestUtils.createPointsForEachElementInRow;
+import static test.java.model.boards.BoardAreaTestUtils.mockIterator;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -17,13 +18,10 @@ import java.util.Iterator;
 import main.java.model.boards.BoardArea;
 import main.java.model.commandOperations.BoardLineUtils;
 
-import static test.java.model.boards.BoardAreaTestUtils.*;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import test.java.model.boards.FixedValue;

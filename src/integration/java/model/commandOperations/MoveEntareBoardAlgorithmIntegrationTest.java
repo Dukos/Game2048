@@ -15,8 +15,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import test.java.model.boards.FixedValue;
-
 @RunWith(MockitoJUnitRunner.class)
 public class MoveEntareBoardAlgorithmIntegrationTest {
 	
