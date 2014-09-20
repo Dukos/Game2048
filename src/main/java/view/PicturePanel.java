@@ -11,18 +11,16 @@ import javax.swing.JPanel;
 public class PicturePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private int currentPictureVersion = 0;
-	
+
 	private CardLayout layout = null;
-	
-	public PicturePanel(PictureResourceSet pictureResourceSet)
-	{
+
+	public PicturePanel(PictureResourceSet pictureResourceSet) {
 		this(pictureResourceSet, new CardLayout());
 	}
-	
-	public PicturePanel(PictureResourceSet pictureResourceSet, CardLayout layout)
-	{
+
+	public PicturePanel(PictureResourceSet pictureResourceSet, CardLayout layout) {
 		super();
 		this.layout = layout;
 		setLayout(layout);
@@ -31,7 +29,7 @@ public class PicturePanel extends JPanel {
 
 	private void createSubLabels(PictureResourceSet pictureResourceSet) {
 		List<ImageIcon> icons = pictureResourceSet.getIconsList();
-		for(int i = 0; i < icons.size(); i++)
+		for (int i = 0; i < icons.size(); i++)
 			addToLayoutComponent(createLabel(icons.get(i)), i);
 	}
 
@@ -48,13 +46,12 @@ public class PicturePanel extends JPanel {
 		currentPictureVersion = pictureVersion;
 		layout.show(this, Integer.toString(pictureVersion));
 	}
-	
+
 	private JLabel createLabel(ImageIcon icon) {
 		JLabel label = new JLabel(icon);
 		label.setPreferredSize(new Dimension(100, 100));
 
 		return label;
 	}
-
 
 }

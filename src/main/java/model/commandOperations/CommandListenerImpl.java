@@ -4,15 +4,16 @@ import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
 
 public class CommandListenerImpl implements CommandsListener {
-	
+
 	private final MoveEntireBoardAlgorithm moveAlgorithm;
-	
+
 	private WallOrientation leftCommandOrientation;
 	private WallOrientation rightCommandOrientation;
 	private WallOrientation upCommandOrientation;
 	private WallOrientation downCommandOrientation;
 
-	public CommandListenerImpl(MoveEntireBoardAlgorithm moveAlgorithm, WallOrientationFactory factory) {
+	public CommandListenerImpl(MoveEntireBoardAlgorithm moveAlgorithm,
+			WallOrientationFactory factory) {
 		this.moveAlgorithm = moveAlgorithm;
 		setUpOrientations(factory);
 	}
@@ -23,7 +24,7 @@ public class CommandListenerImpl implements CommandsListener {
 		upCommandOrientation = factory.forUpCommand();
 		downCommandOrientation = factory.forDownCommand();
 	}
-	
+
 	@Override
 	public void left() {
 		moveAlgorithm.makeMove(leftCommandOrientation);
@@ -33,12 +34,12 @@ public class CommandListenerImpl implements CommandsListener {
 	public void right() {
 		moveAlgorithm.makeMove(rightCommandOrientation);
 	}
-	
+
 	@Override
 	public void up() {
 		moveAlgorithm.makeMove(upCommandOrientation);
 	}
-	
+
 	@Override
 	public void down() {
 		moveAlgorithm.makeMove(downCommandOrientation);

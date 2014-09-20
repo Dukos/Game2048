@@ -18,33 +18,32 @@ public class FreeFieldFinder {
 
 		int x = startPoint.x;
 		int y = startPoint.y;
-		
-		while(!isFieldFree(x, y))
-		{
+
+		while (!isFieldFree(x, y)) {
 			y = circularAdd(y, dimension.width);
-			if(y == 0)
+			if (y == 0)
 				x = circularAdd(x, dimension.height);
-			if(isCycleDetected(startPoint, x, y))
+			if (isCycleDetected(startPoint, x, y))
 				return null;
 		}
-		
+
 		return new Point(x, y);
 	}
-	
-	private int circularAdd(int value, int maxValue)
-	{
+
+	private int circularAdd(int value, int maxValue) {
 		value++;
-		if(value == maxValue)
+		if (value == maxValue)
 			value = 0;
 		return value;
 	}
 
-	private boolean isCycleDetected(final Point startPoint, int currentX, int currentY) {
-		if(startPoint.x != currentX)
+	private boolean isCycleDetected(final Point startPoint, int currentX,
+			int currentY) {
+		if (startPoint.x != currentX)
 			return false;
-		if(startPoint.y != currentY)
+		if (startPoint.y != currentY)
 			return false;
-		
+
 		return true;
 	}
 

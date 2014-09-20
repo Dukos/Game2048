@@ -11,9 +11,8 @@ public class BoardLineMerger {
 	private final BoardArea area;
 
 	private final BoardLineUtils utils;
-	
-	public BoardLineMerger(BoardArea area, BoardLineUtils utils)
-	{
+
+	public BoardLineMerger(BoardArea area, BoardLineUtils utils) {
 		this.area = area;
 		this.utils = utils;
 	}
@@ -23,7 +22,7 @@ public class BoardLineMerger {
 		Iterator<Point> iter = lineIterator.iterator(lineIterator
 				.firstElement(p));
 
-		assert(iter.hasNext());
+		assert (iter.hasNext());
 		Point next = iter.next();
 		Point current = null;
 

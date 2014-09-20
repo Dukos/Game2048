@@ -8,37 +8,33 @@ import main.java.model.commandOperations.orientations.ToRightIteratorImplementat
 import main.java.model.commandOperations.orientations.ToTopIteratorImplementation;
 
 public class PointIteratorTypeChecker {
-	public boolean isHorizontalIterator(PointIteratorsCreator iterator)
-	{
+	public boolean isHorizontalIterator(PointIteratorsCreator iterator) {
 		return isToBottomIterator(iterator) || isToTopIterator(iterator);
 	}
-	
-	public boolean isToBottomIterator(PointIteratorsCreator iterator)
-	{
+
+	public boolean isToBottomIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToBottomIteratorImplementation.class);
 	}
-	
-	public boolean isToTopIterator(PointIteratorsCreator iterator)
-	{
+
+	public boolean isToTopIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToTopIteratorImplementation.class);
 	}
-	
-	public boolean isVerticalIterator(PointIteratorsCreator iterator)
-	{
+
+	public boolean isVerticalIterator(PointIteratorsCreator iterator) {
 		return isToLeftIterator(iterator) || isToRightIterator(iterator);
 	}
-	
-	public boolean isToLeftIterator(PointIteratorsCreator iterator)
-	{
+
+	public boolean isToLeftIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToLeftIteratorImplementation.class);
 	}
-	
-	public boolean isToRightIterator(PointIteratorsCreator iterator)
-	{
+
+	public boolean isToRightIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToRightIteratorImplementation.class);
 	}
-	
-	public boolean isIteratorOfType(PointIteratorsCreator groupIterator, Class<? extends IterarorImplementation> iterarorImplementationClass) {
-		return groupIterator.getIteratorImplementation().getClass().isAssignableFrom(iterarorImplementationClass);
+
+	public boolean isIteratorOfType(PointIteratorsCreator groupIterator,
+			Class<? extends IterarorImplementation> iterarorImplementationClass) {
+		return groupIterator.getIteratorImplementation().getClass()
+				.isAssignableFrom(iterarorImplementationClass);
 	}
 }

@@ -20,7 +20,8 @@ public class ImageLoaderTest {
 
 	private static final String RELATIVE_IMAGE_PATH = "images/img01.png";
 
-	private static final String ABSOLUTE_IMAGE_PATH = APPLICATION_PATH + "/" + RELATIVE_IMAGE_PATH;
+	private static final String ABSOLUTE_IMAGE_PATH = APPLICATION_PATH + "/"
+			+ RELATIVE_IMAGE_PATH;
 
 	private ImageLoader testObject;
 

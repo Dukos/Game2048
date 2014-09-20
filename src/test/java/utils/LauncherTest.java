@@ -11,24 +11,21 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LauncherTest {
-	
+
 	@Mock
 	private MainFrameCreator mainFrameCreator;
-	
+
 	private Launcher testObject = new LauncherTested();
-	
-	class LauncherTested extends Launcher
-	{
+
+	class LauncherTested extends Launcher {
 		@Override
-		protected MainFrameCreator getMainFrameCreator()
-		{
+		protected MainFrameCreator getMainFrameCreator() {
 			return mainFrameCreator;
 		}
-		
+
 		@Override
-		protected void invokeLater(Runnable runnable)
-		{
-			//in tests we do not want to wait for other thread
+		protected void invokeLater(Runnable runnable) {
+			// in tests we do not want to wait for other thread
 			runnable.run();
 		}
 	}
@@ -36,7 +33,7 @@ public class LauncherTest {
 	@Test
 	public void launch_noSetup_createConfiguredMainFrameCalled() {
 		testObject.launch();
-		
+
 		verify(mainFrameCreator).createConfiguredMainFrame();
 	}
 

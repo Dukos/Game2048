@@ -23,16 +23,16 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PicturePanelTest {
 
 	private static final int SECOND_PICTURE_VERSION = 1;
-	
+
 	@Mock
 	private PictureResourceSet pictureResourceSet;
 
 	@Mock
 	private List<ImageIcon> returnedImages;
-	
+
 	@Mock
 	private CardLayout layout;
-	
+
 	@InjectMocks
 	private PicturePanel testObject;
 
@@ -57,7 +57,8 @@ public class PicturePanelTest {
 	@Test
 	public void setPictureVersion_selectedSecondPictureVersion_drawsSecondPictureVersion() {
 		testObject.setPictureVersion(SECOND_PICTURE_VERSION);
-		verify(layout).show(testObject, Integer.toString(SECOND_PICTURE_VERSION));
+		verify(layout).show(testObject,
+				Integer.toString(SECOND_PICTURE_VERSION));
 	}
 
 }

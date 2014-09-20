@@ -14,24 +14,24 @@ import org.mockito.MockitoAnnotations;
 public class WallOrientationTest {
 
 	private WallOrientation testObject;
-	
+
 	@Mock
 	private PointIteratorsCreator groupIterator;
 
 	@Mock
 	private PointIteratorsCreator lineIterator;
-	
+
 	@Mock
 	private Iterator<Point> iterator;
-	
-	private final static Point START_POINT = new Point(1,1);
-	
+
+	private final static Point START_POINT = new Point(1, 1);
+
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		testObject = new WallOrientation(groupIterator, lineIterator);
 	}
-	
+
 	@Test
 	public void getLineIterator_startPointIsSet1x1_returnsLineIterator() {
 	}

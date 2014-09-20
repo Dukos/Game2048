@@ -11,11 +11,10 @@ public class Randomizer {
 	private static final int MAX_VALUE_FOR_CREATED_ELEMENT = 2;
 
 	private final BoardArea area;
-	
+
 	private final Random random;
-	
-	public Randomizer(BoardArea area, Random random)
-	{
+
+	public Randomizer(BoardArea area, Random random) {
 		this.area = area;
 		this.random = random;
 	}
@@ -30,7 +29,8 @@ public class Randomizer {
 	}
 
 	public void setRandomFieldValue(Point currentPoint) {
-		final int selectedValue = random.nextInt(MAX_VALUE_FOR_CREATED_ELEMENT - 1) + 1;
+		final int selectedValue = random
+				.nextInt(MAX_VALUE_FOR_CREATED_ELEMENT - 1) + 1;
 		area.setFieldValue(currentPoint.x, currentPoint.y, selectedValue);
 	}
 }

@@ -18,8 +18,8 @@ public class BoardPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private final GridLayout layout = new GridLayout(ROWS, COLUMNS);
-	
-	private ArrayList< ArrayList<PicturePanel> > picturePanels = null;
+
+	private ArrayList<ArrayList<PicturePanel>> picturePanels = null;
 
 	public BoardPanel() {
 		super();
@@ -28,33 +28,32 @@ public class BoardPanel extends JPanel {
 		populate();
 		setVisible(true);
 	}
-	
+
 	private PictureResourceSet pictureResourceSet = new PictureResourceSet();
-	
+
 	private void populate() {
 		pictureResourceSet.loadImagesFromDirectory("images");
-		
-		picturePanels = new ArrayList< ArrayList<PicturePanel> >();
-		for(int x = 0; x < ROWS; x++)
+
+		picturePanels = new ArrayList<ArrayList<PicturePanel>>();
+		for (int x = 0; x < ROWS; x++)
 			picturePanels.add(populateRow(pictureResourceSet));
 	}
-	
-	private ArrayList<PicturePanel> populateRow(PictureResourceSet pictureResourceSet)
-	{
+
+	private ArrayList<PicturePanel> populateRow(
+			PictureResourceSet pictureResourceSet) {
 		ArrayList<PicturePanel> list = new ArrayList<PicturePanel>();
-		for(int y = 0; y < COLUMNS; y++)
-		{
+		for (int y = 0; y < COLUMNS; y++) {
 			list.add(new PicturePanel(pictureResourceSet));
 			add(list.get(y));
 		}
 		return list;
 	}
-	
-	public void updatePicturesVersions(ReadOnlyBoardArea area)
-	{
-		for(int x = 0; x < ROWS; x++)
-			for(int y = 0; y < COLUMNS; y++)
-				picturePanels.get(x).get(y).setPictureVersion(area.getFieldValue(x, y));
+
+	public void updatePicturesVersions(ReadOnlyBoardArea area) {
+		for (int x = 0; x < ROWS; x++)
+			for (int y = 0; y < COLUMNS; y++)
+				picturePanels.get(x).get(y)
+						.setPictureVersion(area.getFieldValue(x, y));
 	}
 
 	public PicturePanel getPicture(int row, int column) {

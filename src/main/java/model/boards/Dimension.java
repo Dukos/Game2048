@@ -5,14 +5,13 @@ import java.util.Objects;
 public class Dimension {
 	public final int width;
 	public final int height;
-	
+
 	public Dimension(int width, int height) {
 		this.width = width;
 		this.height = height;
 	}
-	
-	public Dimension(Dimension other)
-	{
+
+	public Dimension(Dimension other) {
 		this.width = other.width;
 		this.height = other.height;
 	}
@@ -31,9 +30,9 @@ public class Dimension {
 		if (getClass() != obj.getClass())
 			return false;
 		Dimension other = (Dimension) obj;
-		if(other.width != this.width)
+		if (other.width != this.width)
 			return false;
-		if(other.height != this.height)
+		if (other.height != this.height)
 			return false;
 		return true;
 	}

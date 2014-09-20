@@ -7,7 +7,8 @@ import main.java.model.addingElements.FreeFieldFinder;
 import main.java.model.addingElements.Randomizer;
 
 public class ElementsAdderPartsProvider {
-	public ElementsAdder createElementsAdder(Randomizer randomizer, FreeFieldFinder finder) {
+	public ElementsAdder createElementsAdder(Randomizer randomizer,
+			FreeFieldFinder finder) {
 		return new ElementsAdder(randomizer, finder);
 	}
 

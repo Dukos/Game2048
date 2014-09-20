@@ -23,7 +23,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class PictureResourceSetTest {
 
 	private static final String IMAGES_DIRECTORY_PATH = "images";
-	
+
 	@Mock
 	private ImageLoader imageLoader;
 

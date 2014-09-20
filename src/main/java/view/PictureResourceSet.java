@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 public class PictureResourceSet {
 
 	private static final int IMAGE_VERSIONS = 9;
-	
+
 	private List<ImageIcon> icons = new ArrayList<ImageIcon>();
-	
+
 	private ImageLoader imageLoader = new ImageLoader();
 
 	public void loadImagesFromDirectory(String relativePathToDirectory) {

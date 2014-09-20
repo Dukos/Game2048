@@ -6,25 +6,26 @@ import java.util.Iterator;
 import main.java.model.commandOperations.orientations.WallOrientation;
 
 public class MoveEntireBoardAlgorithm {
-	
+
 	private final BoardLineMover boardLineMover;
-	
+
 	private final BoardLineMerger boardLineMerger;
-	
-	public MoveEntireBoardAlgorithm(BoardLineMover boardLineMover, BoardLineMerger boardLineMerger)
-	{
+
+	public MoveEntireBoardAlgorithm(BoardLineMover boardLineMover,
+			BoardLineMerger boardLineMerger) {
 		this.boardLineMover = boardLineMover;
 		this.boardLineMerger = boardLineMerger;
 	}
-	
+
 	public void makeMove(WallOrientation moveOrientation) {
 		Iterator<Point> iter = moveOrientation.getLineSelectorIterator();
 		Point p = null;
-		while(iter.hasNext())
-		{
+		while (iter.hasNext()) {
 			p = iter.next();
-			boardLineMover.moveElementsTowardsWall(p, moveOrientation.getLineIteratorsCreator());
-			boardLineMerger.mergeMovedElementsTowardsWall(p, moveOrientation.getLineIteratorsCreator());
+			boardLineMover.moveElementsTowardsWall(p,
+					moveOrientation.getLineIteratorsCreator());
+			boardLineMerger.mergeMovedElementsTowardsWall(p,
+					moveOrientation.getLineIteratorsCreator());
 		}
 	}
 }

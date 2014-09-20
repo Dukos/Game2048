@@ -16,25 +16,24 @@ public class CommandListenerImplTest {
 
 	@Mock
 	private MoveEntireBoardAlgorithm moveAlgorithm;
-	
+
 	@Mock
 	private WallOrientationFactory factory;
-	
+
 	@Mock
 	private WallOrientation orientationLeft;
-	
+
 	@Mock
 	private WallOrientation orientationRight;
-	
+
 	@Mock
 	private WallOrientation orientationUp;
-	
+
 	@Mock
 	private WallOrientation orientationDown;
-	
-	
+
 	private CommandListenerImpl testObject;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
@@ -42,7 +41,7 @@ public class CommandListenerImplTest {
 		when(factory.forRightCommand()).thenReturn(orientationRight);
 		when(factory.forUpCommand()).thenReturn(orientationUp);
 		when(factory.forDownCommand()).thenReturn(orientationDown);
-		
+
 		testObject = new CommandListenerImpl(moveAlgorithm, factory);
 	}
 
@@ -51,19 +50,19 @@ public class CommandListenerImplTest {
 		testObject.left();
 		verify(moveAlgorithm).makeMove(orientationLeft);
 	}
-	
+
 	@Test
 	public void right_noSetup_moveMade() {
 		testObject.right();
 		verify(moveAlgorithm).makeMove(orientationRight);
 	}
-	
+
 	@Test
 	public void up_noSetup_moveMade() {
 		testObject.up();
 		verify(moveAlgorithm).makeMove(orientationUp);
 	}
-	
+
 	@Test
 	public void down_noSetup_moveMade() {
 		testObject.down();

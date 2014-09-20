@@ -17,23 +17,21 @@ import org.junit.Test;
 public class MainFrameCreatorTest {
 
 	private JFrame frame;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		frame = new MainFrameCreator().createConfiguredMainFrame();
 	}
-	
-	private BoardPanel findBoardPanel()
-	{
+
+	private BoardPanel findBoardPanel() {
 		Component[] components = frame.getContentPane().getComponents();
-		for(Component component : components)
-			if(component instanceof BoardPanel)
-			{
+		for (Component component : components)
+			if (component instanceof BoardPanel) {
 				return (BoardPanel) component;
 			}
 		return null;
 	}
-	
+
 	@Test
 	public void createStandaloneFrame_noSetup_returnsFrameObject() {
 		assertNotNull(frame);
@@ -53,12 +51,12 @@ public class MainFrameCreatorTest {
 	public void createStandaloneFrame_noSetup_frameisDisplayable() {
 		assertTrue(frame.isDisplayable());
 	}
-	
+
 	@Test
 	public void createStandaloneFrame_noSetup_frameTitleIsSetToGame2048() {
 		assertEquals(frame.getTitle(), "Game2048");
 	}
-	
+
 	@Test
 	public void createStandaloneFrame_noSetup_boardPanelIsAdded() {
 		assertNotNull(findBoardPanel());
