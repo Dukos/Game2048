@@ -9,7 +9,8 @@ public class WallOrientation {
 
 	private PointIteratorsCreator lineIterator;
 
-	public WallOrientation(PointIteratorsCreator lineSelector, PointIteratorsCreator lineIterator) {
+	public WallOrientation(PointIteratorsCreator lineSelector,
+			PointIteratorsCreator lineIterator) {
 		this.lineSelectorIterator = lineSelector;
 		this.lineIterator = lineIterator;
 	}
@@ -22,14 +23,12 @@ public class WallOrientation {
 		Point firstElement = lineSelectorIterator.firstElement(new Point());
 		return lineSelectorIterator.iterator(firstElement);
 	}
-	
-	public PointIteratorsCreator getLineSelectorIteratorsCreator()
-	{
+
+	public PointIteratorsCreator getLineSelectorIteratorsCreator() {
 		return lineSelectorIterator;
 	}
-	
-	public PointIteratorsCreator getLineIteratorsCreator()
-	{
+
+	public PointIteratorsCreator getLineIteratorsCreator() {
 		return lineIterator;
 	}
 }

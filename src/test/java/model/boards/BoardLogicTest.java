@@ -1,13 +1,7 @@
 package test.java.model.boards;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.when;
-
-import main.java.model.boards.Dimension;
-import main.java.model.commandOperations.CommandsListener;
-
 import main.java.model.addingElements.ElementsAdder;
+import main.java.model.commandOperations.CommandsListener;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -6,13 +6,10 @@ import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
 import main.java.model.boards.BoardLogicCreator;
-import main.java.model.boards.Dimension;
 import main.java.model.commandOperations.BoardLineUtils;
 import main.java.model.commandOperations.CommandsListener;
 import main.java.model.commandOperations.orientations.WallOrientation;
-import main.java.model.commandOperations.orientations.WallOrientationFactory;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
