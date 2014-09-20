@@ -16,10 +16,9 @@ public class BoardLogic {
 	private void gameOver() {
 	}
 
-	public BoardLogic(ElementsAdder elementsAdder, CommandsListener commandListener)
+	public BoardLogic(ElementsAdder elementsAdder)
 	{
 		this.elementsAdder = elementsAdder;
-		this.commandListener = commandListener;
 	}
 	
 }

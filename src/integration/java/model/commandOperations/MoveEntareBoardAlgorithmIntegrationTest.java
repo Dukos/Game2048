@@ -2,14 +2,13 @@ package integration.java.model.commandOperations;
 
 import static org.junit.Assert.assertEquals;
 
-import main.java.model.boards.Dimension;
 import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
-import main.java.model.commandOperations.BoardLineMerger;
-import main.java.model.commandOperations.BoardLineMover;
+import main.java.model.boards.BoardLogicCreator;
+import main.java.model.boards.Dimension;
 import main.java.model.commandOperations.BoardLineUtils;
-import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
+import main.java.model.commandOperations.CommandsListener;
 import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
 
@@ -27,13 +26,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 	
 	private BoardLineUtils utils = new BoardLineUtils(area);
 	
-	private MoveEntireBoardAlgorithm testObject = new MoveEntireBoardAlgorithm(new BoardLineMover(utils), new BoardLineMerger(area, utils));
-	
-	@Before
-	public void setUp() throws Exception {
-		Dimension dimensions = area.getDimensions();
-		orientation = new WallOrientationFactory(dimensions).forLeftCommand();
-	}
+	private CommandsListener testObject = new BoardLogicCreator().createCommandListener(area);
 
 	@Test
 	public void makeMove_twoSameItemsInSameRowOnBoardArea_bothItemsMovedToTheLeftAndMerged() {
@@ -46,7 +39,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 		area.setFieldValue(p1.x, p1.y, fixedValue);
 		area.setFieldValue(p2.x, p2.y, fixedValue);
 		
-		testObject.makeMove(orientation);
+		testObject.left();
 		
 		assertEquals(area.getFieldValue(p1.x, p1.y), 0);
 		assertEquals(area.getFieldValue(p2.x, p2.y), 0);
@@ -71,7 +64,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 		
 		final int[] expectedLastRow = {fixedValue + 1, fixedValue, 0, 0, 0};
 		
-		testObject.makeMove(orientation);
+		testObject.left();
 		
 		checkRow(fixedY, expectedLastRow);
 	}
