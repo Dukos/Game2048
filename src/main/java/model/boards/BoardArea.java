@@ -19,9 +19,6 @@ public class BoardArea implements ReadOnlyBoardArea {
 	}
 
 	public void setFieldValue(int x, int y, int version) {
-		if (version < 0)
-			throw new IllegalArgumentException(
-					"Field cannot have negative field value");
 		area[x][y] = version;
 	}
 }

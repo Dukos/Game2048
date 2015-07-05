@@ -18,21 +18,16 @@ public class LauncherTest {
 	private Launcher testObject = new LauncherTested();
 
 	class LauncherTested extends Launcher {
-		@Override
-		protected MainFrameCreator getMainFrameCreator() {
-			return mainFrameCreator;
-		}
 
 		@Override
 		protected void invokeLater(Runnable runnable) {
-			// in tests we do not want to wait for other thread
 			runnable.run();
 		}
 	}
 
 	@Test
 	public void launch_noSetup_createConfiguredMainFrameCalled() {
-		testObject.launch();
+		testObject.launch(mainFrameCreator);
 
 		verify(mainFrameCreator).createConfiguredMainFrame();
 	}

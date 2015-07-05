@@ -2,11 +2,14 @@ package main.java.model.addingElements;
 
 import java.awt.Point;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ElementsAdder {
 
 	private final Randomizer randomizer;
 	private final FreeFieldFinder freeFieldFinder;
 
+	@Autowired
 	public ElementsAdder(Randomizer randomizer, FreeFieldFinder finder) {
 		this.randomizer = randomizer;
 		this.freeFieldFinder = finder;

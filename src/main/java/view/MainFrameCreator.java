@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 
 public class MainFrameCreator {
 
-	private static final String FRAME_LABEL = "Game2048";
-
 	public JFrame createConfiguredMainFrame() {
 		JFrame frame = createAndSetupWindow();
 		addBoardPanel(frame);
@@ -14,7 +12,8 @@ public class MainFrameCreator {
 	}
 
 	private JFrame createAndSetupWindow() {
-		JFrame frame = new JFrame(FRAME_LABEL);
+		final String frameLabel = "Game2048";
+		JFrame frame = new JFrame(frameLabel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		return frame;
 	}

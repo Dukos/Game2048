@@ -3,6 +3,8 @@ package main.java.model.commandOperations;
 import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class CommandListenerImpl implements CommandsListener {
 
 	private final MoveEntireBoardAlgorithm moveAlgorithm;
@@ -12,6 +14,7 @@ public class CommandListenerImpl implements CommandsListener {
 	private WallOrientation upCommandOrientation;
 	private WallOrientation downCommandOrientation;
 
+	@Autowired
 	public CommandListenerImpl(MoveEntireBoardAlgorithm moveAlgorithm,
 			WallOrientationFactory factory) {
 		this.moveAlgorithm = moveAlgorithm;

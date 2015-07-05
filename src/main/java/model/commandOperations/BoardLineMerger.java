@@ -3,6 +3,8 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.model.boards.BoardArea;
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
@@ -12,6 +14,7 @@ public class BoardLineMerger {
 
 	private final BoardLineUtils utils;
 
+	@Autowired
 	public BoardLineMerger(BoardArea area, BoardLineUtils utils) {
 		this.area = area;
 		this.utils = utils;

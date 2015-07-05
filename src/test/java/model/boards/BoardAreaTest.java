@@ -60,12 +60,6 @@ public class BoardAreaTest {
 				SAMPLE_CORRECT_FIELD_VALUE);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void setFieldValue_fieldValueIsNegative_IndexOutOfBoundsExceptionThrown() {
-		testObject.setFieldValue(SAMPLE_CORRECT_X, SAMPLE_CORRECT_Y,
-				SAMPLE_NEGATIVE_VALUE);
-	}
-
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void setFieldValue_xValueIsEqualWidth_IndexOutOfBoundsExceptionThrown() {
 		final int tooBigValue = AREA.width + 1;

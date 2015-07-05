@@ -2,6 +2,8 @@ package main.java.model.addingElements;
 
 import java.awt.Point;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.model.boards.BoardArea;
 import main.java.model.boards.Dimension;
 
@@ -9,6 +11,7 @@ public class FreeFieldFinder {
 
 	private BoardArea area;
 
+	@Autowired
 	public FreeFieldFinder(BoardArea area) {
 		this.area = area;
 	}

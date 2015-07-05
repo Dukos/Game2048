@@ -1,5 +1,7 @@
 package main.java.model.boards;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.model.addingElements.ElementsAdder;
 import main.java.model.commandOperations.CommandsListener;
 
@@ -16,6 +18,7 @@ public class BoardLogic {
 	private void gameOver() {
 	}
 
+	@Autowired
 	public BoardLogic(ElementsAdder elementsAdder) {
 		this.elementsAdder = elementsAdder;
 	}

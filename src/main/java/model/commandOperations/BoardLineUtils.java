@@ -3,12 +3,15 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.model.boards.BoardArea;
 
 public class BoardLineUtils {
 
 	private final BoardArea area;
 
+	@Autowired
 	public BoardLineUtils(BoardArea area) {
 		this.area = area;
 	}

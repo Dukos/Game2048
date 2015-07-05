@@ -3,12 +3,15 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
 public class BoardLineMover {
 	
 	private BoardLineUtils utils;
 
+	@Autowired
 	public BoardLineMover(BoardLineUtils utils) {
 		this.utils = utils;
 	}

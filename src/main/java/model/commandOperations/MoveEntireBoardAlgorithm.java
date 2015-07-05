@@ -3,6 +3,8 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.model.commandOperations.orientations.WallOrientation;
 
 public class MoveEntireBoardAlgorithm {
@@ -11,6 +13,7 @@ public class MoveEntireBoardAlgorithm {
 
 	private final BoardLineMerger boardLineMerger;
 
+	@Autowired
 	public MoveEntireBoardAlgorithm(BoardLineMover boardLineMover,
 			BoardLineMerger boardLineMerger) {
 		this.boardLineMover = boardLineMover;
