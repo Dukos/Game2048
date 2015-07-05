@@ -6,6 +6,11 @@ import java.util.Random;
 import main.java.model.boards.BoardArea;
 import main.java.model.boards.Dimension;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Randomizer {
 
 	private static final int MAX_VALUE_FOR_CREATED_ELEMENT = 2;
@@ -14,6 +19,7 @@ public class Randomizer {
 
 	private final Random random;
 
+	@Autowired
 	public Randomizer(BoardArea area, Random random) {
 		this.area = area;
 		this.random = random;

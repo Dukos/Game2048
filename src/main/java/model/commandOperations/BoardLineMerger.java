@@ -3,11 +3,13 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import main.java.model.boards.BoardArea;
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BoardLineMerger {
 
 	private final BoardArea area;

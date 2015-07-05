@@ -4,7 +4,9 @@ import main.java.model.commandOperations.orientations.WallOrientation;
 import main.java.model.commandOperations.orientations.WallOrientationFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CommandListenerImpl implements CommandsListener {
 
 	private final MoveEntireBoardAlgorithm moveAlgorithm;

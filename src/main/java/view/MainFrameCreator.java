@@ -2,6 +2,9 @@ package main.java.view;
 
 import javax.swing.JFrame;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MainFrameCreator {
 
 	public JFrame createConfiguredMainFrame() {

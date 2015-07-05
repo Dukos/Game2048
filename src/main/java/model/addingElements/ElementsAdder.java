@@ -3,7 +3,9 @@ package main.java.model.addingElements;
 import java.awt.Point;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ElementsAdder {
 
 	private final Randomizer randomizer;

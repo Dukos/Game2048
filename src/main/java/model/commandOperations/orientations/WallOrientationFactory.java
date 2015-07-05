@@ -2,6 +2,10 @@ package main.java.model.commandOperations.orientations;
 
 import main.java.model.boards.Dimension;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class WallOrientationFactory {
 
 	private PointIteratorsCreator toLeftIterator;
@@ -12,6 +16,7 @@ public class WallOrientationFactory {
 
 	private PointIteratorsCreator toTopIterator;
 
+	@Autowired
 	public WallOrientationFactory(Dimension dimensions) {
 		toLeftIterator = new PointIteratorsCreator(
 				new ToLeftIteratorImplementation(), dimensions);

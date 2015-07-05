@@ -3,10 +3,12 @@ package main.java.model.commandOperations;
 import java.awt.Point;
 import java.util.Iterator;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import main.java.model.commandOperations.orientations.WallOrientation;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MoveEntireBoardAlgorithm {
 
 	private final BoardLineMover boardLineMover;

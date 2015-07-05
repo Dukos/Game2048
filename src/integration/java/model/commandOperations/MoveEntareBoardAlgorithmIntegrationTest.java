@@ -5,27 +5,38 @@ import static org.junit.Assert.assertEquals;
 import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
-import main.java.model.boards.BoardLogicCreator;
-import main.java.model.commandOperations.BoardLineUtils;
+import main.java.model.commandOperations.CommandListenerImpl;
 import main.java.model.commandOperations.CommandsListener;
-import main.java.model.commandOperations.orientations.WallOrientation;
+import main.java.utils.Config;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MoveEntareBoardAlgorithmIntegrationTest {
 
-	private BoardArea area = new BoardArea();
+	private static AnnotationConfigApplicationContext context;
+	
+	private BoardArea area;
 
-	private WallOrientation orientation;
+	private CommandsListener testObject = null;
 
-	private BoardLineUtils utils = new BoardLineUtils(area);
-
-	private CommandsListener testObject = new BoardLogicCreator()
-			.createCommandListener(area);
-
+	@Before
+	public void setUpBefore() throws Exception {
+	    context = new AnnotationConfigApplicationContext(Config.class);
+	    area = context.getBean(BoardArea.class);
+	    testObject = context.getBean(CommandListenerImpl.class);
+	}
+	
+	@After
+	public void tearDownAfter() throws Exception {
+	    context.close();
+	}
+	
 	@Test
 	public void makeMove_twoSameItemsInSameRowOnBoardArea_bothItemsMovedToTheLeftAndMerged() {
 		final int fixedY = 4;

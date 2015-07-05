@@ -1,5 +1,6 @@
 package main.java.model.commandOperations;
 
+
 public interface CommandsListener {
 
 	void left();

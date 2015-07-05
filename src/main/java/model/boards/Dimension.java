@@ -2,11 +2,17 @@ package main.java.model.boards;
 
 import java.util.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Dimension {
 	public final int width;
 	public final int height;
 
-	public Dimension(int width, int height) {
+	@Autowired
+	public Dimension(@Value("5") int width, @Value("5") int height) {
 		this.width = width;
 		this.height = height;
 	}
