@@ -8,31 +8,31 @@ import main.java.model.commandOperations.orientations.ToRightIteratorImplementat
 import main.java.model.commandOperations.orientations.ToTopIteratorImplementation;
 
 public class PointIteratorTypeChecker {
-	public boolean isHorizontalIterator(PointIteratorsCreator iterator) {
+	public static boolean isHorizontalIterator(PointIteratorsCreator iterator) {
 		return isToBottomIterator(iterator) || isToTopIterator(iterator);
 	}
 
-	public boolean isToBottomIterator(PointIteratorsCreator iterator) {
+	public static boolean isToBottomIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToBottomIteratorImplementation.class);
 	}
 
-	public boolean isToTopIterator(PointIteratorsCreator iterator) {
+	public static boolean isToTopIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToTopIteratorImplementation.class);
 	}
 
-	public boolean isVerticalIterator(PointIteratorsCreator iterator) {
+	public static boolean isVerticalIterator(PointIteratorsCreator iterator) {
 		return isToLeftIterator(iterator) || isToRightIterator(iterator);
 	}
 
-	public boolean isToLeftIterator(PointIteratorsCreator iterator) {
+	public static boolean isToLeftIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToLeftIteratorImplementation.class);
 	}
 
-	public boolean isToRightIterator(PointIteratorsCreator iterator) {
+	public static boolean isToRightIterator(PointIteratorsCreator iterator) {
 		return isIteratorOfType(iterator, ToRightIteratorImplementation.class);
 	}
 
-	public boolean isIteratorOfType(PointIteratorsCreator groupIterator,
+	public static boolean isIteratorOfType(PointIteratorsCreator groupIterator,
 			Class<? extends IterarorImplementation> iterarorImplementationClass) {
 		return groupIterator.getIteratorImplementation().getClass()
 				.isAssignableFrom(iterarorImplementationClass);

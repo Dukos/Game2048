@@ -4,8 +4,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import main.java.model.commandOperations.CommandListenerImpl;
 import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
-import main.java.model.commandOperations.orientations.WallOrientation;
-import main.java.model.commandOperations.orientations.WallOrientationFactory;
+import main.java.model.commandOperations.orientations.MoveEntireBoardAlgorithmFactory;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,58 +14,56 @@ import org.mockito.MockitoAnnotations;
 public class CommandListenerImplTest {
 
 	@Mock
-	private MoveEntireBoardAlgorithm moveAlgorithm;
+	private MoveEntireBoardAlgorithmFactory factory;
 
 	@Mock
-	private WallOrientationFactory factory;
+	private MoveEntireBoardAlgorithm algorithmLeft;
 
 	@Mock
-	private WallOrientation orientationLeft;
+	private MoveEntireBoardAlgorithm algorithmRight;
 
 	@Mock
-	private WallOrientation orientationRight;
+	private MoveEntireBoardAlgorithm algorithmUp;
 
 	@Mock
-	private WallOrientation orientationUp;
-
-	@Mock
-	private WallOrientation orientationDown;
+	private MoveEntireBoardAlgorithm algorithmDown;
 
 	private CommandListenerImpl testObject;
 
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		when(factory.forLeftCommand()).thenReturn(orientationLeft);
-		when(factory.forRightCommand()).thenReturn(orientationRight);
-		when(factory.forUpCommand()).thenReturn(orientationUp);
-		when(factory.forDownCommand()).thenReturn(orientationDown);
+		when(factory.forLeftCommand()).thenReturn(algorithmLeft);
+		when(factory.forRightCommand()).thenReturn(algorithmRight);
+		when(factory.forUpCommand()).thenReturn(algorithmUp);
+		when(factory.forDownCommand()).thenReturn(algorithmDown);
 
-		testObject = new CommandListenerImpl(moveAlgorithm, factory);
+		testObject = new CommandListenerImpl(factory);
 	}
 
 	@Test
 	public void left_noSetup_moveMade() {
+		when(factory.forLeftCommand()).thenReturn(algorithmLeft);
 		testObject.left();
-		verify(moveAlgorithm).makeMove(orientationLeft);
+		verify(algorithmLeft).makeMove();
 	}
 
 	@Test
 	public void right_noSetup_moveMade() {
 		testObject.right();
-		verify(moveAlgorithm).makeMove(orientationRight);
+		verify(algorithmRight).makeMove();
 	}
 
 	@Test
 	public void up_noSetup_moveMade() {
 		testObject.up();
-		verify(moveAlgorithm).makeMove(orientationUp);
+		verify(algorithmUp).makeMove();
 	}
 
 	@Test
 	public void down_noSetup_moveMade() {
 		testObject.down();
-		verify(moveAlgorithm).makeMove(orientationDown);
+		verify(algorithmDown).makeMove();
 	}
 
 }

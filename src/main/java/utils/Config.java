@@ -13,7 +13,7 @@ import main.java.model.commandOperations.BoardLineMover;
 import main.java.model.commandOperations.BoardLineUtils;
 import main.java.model.commandOperations.CommandsListener;
 import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
-import main.java.model.commandOperations.orientations.WallOrientationFactory;
+import main.java.model.commandOperations.orientations.MoveEntireBoardAlgorithmFactory;
 import main.java.view.MainFrameCreator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class Config
 	@Autowired BoardLineMover boardLineMover;
 	@Autowired BoardLineMerger boardLineMerger;
 	@Autowired MoveEntireBoardAlgorithm moveEntireBoardAlgorithm;
-	@Autowired WallOrientationFactory wallOrientationFactory;
+	@Autowired MoveEntireBoardAlgorithmFactory moveEntireBoardAlgorithmFactory;
 	@Autowired CommandsListener commandsListener;
 	
 	@Autowired BoardLogic boardLogic;

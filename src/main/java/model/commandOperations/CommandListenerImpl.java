@@ -1,7 +1,6 @@
 package main.java.model.commandOperations;
 
-import main.java.model.commandOperations.orientations.WallOrientation;
-import main.java.model.commandOperations.orientations.WallOrientationFactory;
+import main.java.model.commandOperations.orientations.MoveEntireBoardAlgorithmFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,44 +8,40 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommandListenerImpl implements CommandsListener {
 
-	private final MoveEntireBoardAlgorithm moveAlgorithm;
-
-	private WallOrientation leftCommandOrientation;
-	private WallOrientation rightCommandOrientation;
-	private WallOrientation upCommandOrientation;
-	private WallOrientation downCommandOrientation;
+	private MoveEntireBoardAlgorithm leftAlgorithm;
+	private MoveEntireBoardAlgorithm rightAlgorithm;
+	private MoveEntireBoardAlgorithm upAlgorithm;
+	private MoveEntireBoardAlgorithm downAlgorithm;
 
 	@Autowired
-	public CommandListenerImpl(MoveEntireBoardAlgorithm moveAlgorithm,
-			WallOrientationFactory factory) {
-		this.moveAlgorithm = moveAlgorithm;
-		setUpOrientations(factory);
+	public CommandListenerImpl(MoveEntireBoardAlgorithmFactory factory) {
+		setUpAlgorithms(factory);
 	}
 
-	private void setUpOrientations(WallOrientationFactory factory) {
-		leftCommandOrientation = factory.forLeftCommand();
-		rightCommandOrientation = factory.forRightCommand();
-		upCommandOrientation = factory.forUpCommand();
-		downCommandOrientation = factory.forDownCommand();
+	private void setUpAlgorithms(MoveEntireBoardAlgorithmFactory factory) {
+		leftAlgorithm = factory.forLeftCommand();
+		rightAlgorithm = factory.forRightCommand();
+		upAlgorithm = factory.forUpCommand();
+		downAlgorithm = factory.forDownCommand();
 	}
 
 	@Override
 	public void left() {
-		moveAlgorithm.makeMove(leftCommandOrientation);
+		leftAlgorithm.makeMove();
 	}
 
 	@Override
 	public void right() {
-		moveAlgorithm.makeMove(rightCommandOrientation);
+		rightAlgorithm.makeMove();
 	}
 
 	@Override
 	public void up() {
-		moveAlgorithm.makeMove(upCommandOrientation);
+		upAlgorithm.makeMove();
 	}
 
 	@Override
 	public void down() {
-		moveAlgorithm.makeMove(downCommandOrientation);
+		downAlgorithm.makeMove();
 	}
 }
