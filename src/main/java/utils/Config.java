@@ -12,7 +12,6 @@ import main.java.model.commandOperations.BoardLineMerger;
 import main.java.model.commandOperations.BoardLineMover;
 import main.java.model.commandOperations.BoardLineUtils;
 import main.java.model.commandOperations.CommandsListener;
-import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
 import main.java.model.commandOperations.orientations.MoveEntireBoardAlgorithmFactory;
 import main.java.view.MainFrameCreator;
 
@@ -36,7 +35,6 @@ public class Config
 	@Autowired BoardLineUtils boardLineUtils;
 	@Autowired BoardLineMover boardLineMover;
 	@Autowired BoardLineMerger boardLineMerger;
-	@Autowired MoveEntireBoardAlgorithm moveEntireBoardAlgorithm;
 	@Autowired MoveEntireBoardAlgorithmFactory moveEntireBoardAlgorithmFactory;
 	@Autowired CommandsListener commandsListener;
 	

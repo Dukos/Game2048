@@ -25,6 +25,15 @@ public class BoardAreaTestUtils {
 		for (FixedValue fv : fixedValues)
 			when(area.getFieldValue(fv.x, fv.y)).thenReturn(fv.value);
 	}
+	
+	public static void configureBoardAreaMock2(ReadOnlyBoardArea area, int rows,
+			int columns, int... values)
+	{
+		assert(values.length == rows * columns);
+		when(area.getDimensions()).thenReturn(new Dimension(rows, columns));
+		for (int pos = 0; pos < values.length; ++pos)
+			when(area.getFieldValue(pos % columns, pos / columns)).thenReturn(values[pos]);
+	}
 
 	public static Iterator<Point> mockIterator(ArrayList<Point> nextResponses) {
 

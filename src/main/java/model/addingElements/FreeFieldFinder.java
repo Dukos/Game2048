@@ -11,12 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FreeFieldFinder {
 
-	private ReadOnlyBoardArea area;
-
 	@Autowired
-	public FreeFieldFinder(ReadOnlyBoardArea area) {
-		this.area = area;
-	}
+	private ReadOnlyBoardArea area;
 
 	public Point findFirstFreeField(final Point startPoint) {
 		final Dimension dimension = area.getDimensions();

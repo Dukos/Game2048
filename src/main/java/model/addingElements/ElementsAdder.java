@@ -10,16 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ElementsAdder {
 
-	private final BoardArea boardArea;
-	private final Randomizer randomizer;
-	private final FreeFieldFinder freeFieldFinder;
-
 	@Autowired
-	public ElementsAdder(BoardArea boardArea, Randomizer randomizer, FreeFieldFinder finder) {
-		this.boardArea = boardArea;
-		this.randomizer = randomizer;
-		this.freeFieldFinder = finder;
-	}
+	private BoardArea boardArea;
+	@Autowired
+	private Randomizer randomizer;
+	@Autowired
+	private FreeFieldFinder freeFieldFinder;
 
 	public boolean tryAddNewElement() {
 		Point p = randomizer.generateRandomField();
