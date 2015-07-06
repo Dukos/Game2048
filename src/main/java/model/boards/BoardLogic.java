@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BoardLogic {
+	
 	private ElementsAdder elementsAdder;
 
 	private CommandsListener commandListener;

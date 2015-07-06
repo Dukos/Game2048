@@ -22,5 +22,11 @@
   		<artifactId>spring-context</artifactId>
   		<version>4.1.0.RELEASE</version>
   	</dependency>
+  	<dependency>
+  		<groupId>nl.jqno.equalsverifier</groupId>
+  		<artifactId>equalsverifier</artifactId>
+  		<version>1.7.2</version>
+  		<scope>test</scope>
+  	</dependency>
   </dependencies>
 </project>

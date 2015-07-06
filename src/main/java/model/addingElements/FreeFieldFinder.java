@@ -2,8 +2,8 @@ package main.java.model.addingElements;
 
 import java.awt.Point;
 
-import main.java.model.boards.BoardArea;
 import main.java.model.boards.Dimension;
+import main.java.model.boards.ReadOnlyBoardArea;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class FreeFieldFinder {
 
-	private BoardArea area;
+	private ReadOnlyBoardArea area;
 
 	@Autowired
-	public FreeFieldFinder(BoardArea area) {
+	public FreeFieldFinder(ReadOnlyBoardArea area) {
 		this.area = area;
 	}
 
@@ -42,8 +42,7 @@ public class FreeFieldFinder {
 		return value;
 	}
 
-	private boolean isCycleDetected(final Point startPoint, int currentX,
-			int currentY) {
+	private boolean isCycleDetected(final Point startPoint, int currentX, int currentY) {
 		if (startPoint.x != currentX)
 			return false;
 		if (startPoint.y != currentY)

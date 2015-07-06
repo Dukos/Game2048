@@ -29,35 +29,34 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MoveEntireBoardAlgorithmFactoryTest {
-	
+
 	@Mock
 	private Dimension dimensions;
-	
+
 	@Mock
 	private BoardLineMover mover;
-	
+
 	@Mock
 	private BoardLineMerger merger;
-	
+
 	@Mock
 	private MoveEntireBoardAlgorithm result;
 
 	@InjectMocks
 	@Spy
 	private MoveEntireBoardAlgorithmFactory testObject;
-	
+
 	@Captor
 	ArgumentCaptor<PointIteratorsCreator> lineSelector;
-	
+
 	@Captor
 	ArgumentCaptor<PointIteratorsCreator> lineIterator;
-	
-    @Before
-    public void init(){
-		doReturn( result )
-	    .when( testObject )
-	    .createAlgorithm( eq(mover), eq(merger), lineSelector.capture(), lineIterator.capture());
-    }
+
+	@Before
+	public void init() {
+		doReturn(result).when(testObject).createAlgorithm(eq(mover), eq(merger), lineSelector.capture(),
+				lineIterator.capture());
+	}
 
 	@Test
 	public void forLeftCommand_noAdditionalSetup_createsCorrectalg() {
@@ -71,7 +70,7 @@ public class MoveEntireBoardAlgorithmFactoryTest {
 	@Test
 	public void forRightCommand_noAdditionalSetup_createsCorrectalg() {
 		MoveEntireBoardAlgorithm alg = testObject.forRightCommand();
-		
+
 		assertEquals(alg, result);
 		assertTrue(isHorizontalIterator(lineSelector.getValue()));
 		assertTrue(isToLeftIterator(lineIterator.getValue()));
@@ -80,7 +79,7 @@ public class MoveEntireBoardAlgorithmFactoryTest {
 	@Test
 	public void forDownCommand_noAdditionalSetup_createsCorrectalg() {
 		MoveEntireBoardAlgorithm alg = testObject.forDownCommand();
-		
+
 		assertEquals(alg, result);
 		assertTrue(isVerticalIterator(lineSelector.getValue()));
 		assertTrue(isToBottomIterator(lineIterator.getValue()));
@@ -89,7 +88,7 @@ public class MoveEntireBoardAlgorithmFactoryTest {
 	@Test
 	public void forUpCommand_noAdditionalSetup_createsCorrectalg() {
 		MoveEntireBoardAlgorithm alg = testObject.forUpCommand();
-		
+
 		assertEquals(alg, result);
 		assertTrue(isVerticalIterator(lineSelector.getValue()));
 		assertTrue(isToTopIterator(lineIterator.getValue()));

@@ -15,28 +15,25 @@ public class Randomizer {
 
 	private static final int MAX_VALUE_FOR_CREATED_ELEMENT = 2;
 
-	private final BoardArea area;
+	private final Dimension dimension;
 
 	private final Random random;
 
 	@Autowired
-	public Randomizer(BoardArea area, Random random) {
-		this.area = area;
+	public Randomizer(Dimension dimension, Random random) {
+		this.dimension = dimension;
 		this.random = random;
 	}
 
-	public Point getRandomField() {
-		final Dimension dimensions = area.getDimensions();
+	public Point generateRandomField() {
 
-		final int selectedRow = random.nextInt(dimensions.width);
-		final int selectedColumn = random.nextInt(dimensions.height);
+		final int selectedRow = random.nextInt(dimension.width);
+		final int selectedColumn = random.nextInt(dimension.height);
 
 		return new Point(selectedRow, selectedColumn);
 	}
 
-	public void setRandomFieldValue(Point currentPoint) {
-		final int selectedValue = random
-				.nextInt(MAX_VALUE_FOR_CREATED_ELEMENT - 1) + 1;
-		area.setFieldValue(currentPoint.x, currentPoint.y, selectedValue);
+	public int generateRandomFieldValue() {
+		return random.nextInt(MAX_VALUE_FOR_CREATED_ELEMENT - 1) + 1;
 	}
 }
