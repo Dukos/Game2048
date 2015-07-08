@@ -1,20 +1,21 @@
 package test.java.model.commandOperations;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import main.java.model.commandOperations.CommandListenerImpl;
+import main.java.model.commandOperations.CommandsListener;
 import main.java.model.commandOperations.MoveEntireBoardAlgorithm;
 import main.java.model.commandOperations.orientations.MoveEntireBoardAlgorithmFactory;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
-public class CommandListenerImplTest {
-
-	@Mock
-	private MoveEntireBoardAlgorithmFactory factory;
+@RunWith(MockitoJUnitRunner.class)
+public class CommandListenerTest {
 
 	@Mock
 	private MoveEntireBoardAlgorithm algorithmLeft;
@@ -28,22 +29,22 @@ public class CommandListenerImplTest {
 	@Mock
 	private MoveEntireBoardAlgorithm algorithmDown;
 
-	private CommandListenerImpl testObject;
+	private CommandsListener testObject;
 
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
+		MoveEntireBoardAlgorithmFactory factory = mock(MoveEntireBoardAlgorithmFactory.class);
 		when(factory.forLeftCommand()).thenReturn(algorithmLeft);
 		when(factory.forRightCommand()).thenReturn(algorithmRight);
 		when(factory.forUpCommand()).thenReturn(algorithmUp);
 		when(factory.forDownCommand()).thenReturn(algorithmDown);
-
-		testObject = new CommandListenerImpl(factory);
+		
+		testObject = new CommandsListener(factory);
 	}
 
 	@Test
 	public void left_noSetup_moveMade() {
-		when(factory.forLeftCommand()).thenReturn(algorithmLeft);
 		testObject.left();
 		verify(algorithmLeft).makeMove();
 	}
@@ -65,5 +66,4 @@ public class CommandListenerImplTest {
 		testObject.down();
 		verify(algorithmDown).makeMove();
 	}
-
 }

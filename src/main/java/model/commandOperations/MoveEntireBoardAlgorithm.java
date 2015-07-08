@@ -5,9 +5,6 @@ import java.util.Iterator;
 
 import main.java.model.commandOperations.orientations.PointIteratorsCreator;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 public class MoveEntireBoardAlgorithm {
 
 	private final BoardLineMover boardLineMover;
@@ -18,7 +15,6 @@ public class MoveEntireBoardAlgorithm {
 	
 	private final PointIteratorsCreator lineIterator;
 
-	@Autowired
 	public MoveEntireBoardAlgorithm(BoardLineMover boardLineMover,
 			BoardLineMerger boardLineMerger,
 			PointIteratorsCreator lineSelector,

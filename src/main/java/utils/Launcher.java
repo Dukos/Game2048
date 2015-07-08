@@ -8,7 +8,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Launcher {
 	
 	public static void main(String[] args) {
-	      ApplicationContext context = 
+		@SuppressWarnings("resource")
+		ApplicationContext context = 
 	          new AnnotationConfigApplicationContext(Config.class);
 	      MainFrameCreator mainFrameCreator = context.getBean(MainFrameCreator.class);
 	      

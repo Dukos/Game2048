@@ -3,11 +3,9 @@ package main.java.model.addingElements;
 import java.awt.Point;
 import java.util.Random;
 
-import main.java.model.boards.BoardArea;
 import main.java.model.boards.Dimension;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component

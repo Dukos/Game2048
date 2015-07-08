@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.awt.Point;
 
 import main.java.model.boards.BoardArea;
-import main.java.model.commandOperations.CommandListenerImpl;
 import main.java.model.commandOperations.CommandsListener;
 import main.java.utils.Config;
 
@@ -29,7 +28,7 @@ public class MoveEntareBoardAlgorithmIntegrationTest {
 	public void setUpBefore() throws Exception {
 	    context = new AnnotationConfigApplicationContext(Config.class);
 	    area = context.getBean(BoardArea.class);
-	    testObject = context.getBean(CommandListenerImpl.class);
+	    testObject = context.getBean(CommandsListener.class);
 	}
 	
 	@After

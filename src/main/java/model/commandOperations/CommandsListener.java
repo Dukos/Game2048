@@ -1,14 +1,39 @@
 package main.java.model.commandOperations;
 
+import main.java.model.commandOperations.orientations.MoveEntireBoardAlgorithmFactory;
 
-public interface CommandsListener {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-	void left();
+@Component
+public class CommandsListener {
 
-	void right();
+	private MoveEntireBoardAlgorithm leftAlgorithm;
+	private MoveEntireBoardAlgorithm rightAlgorithm;
+	private MoveEntireBoardAlgorithm upAlgorithm;
+	private MoveEntireBoardAlgorithm downAlgorithm;
 
-	void up();
+	@Autowired
+	public CommandsListener (MoveEntireBoardAlgorithmFactory factory) {
+		leftAlgorithm = factory.forLeftCommand();
+		rightAlgorithm = factory.forRightCommand();
+		upAlgorithm = factory.forUpCommand();
+		downAlgorithm = factory.forDownCommand();
+	}
 
-	void down();
+	public void left() {
+		leftAlgorithm.makeMove();
+	}
 
+	public void right() {
+		rightAlgorithm.makeMove();
+	}
+
+	public void up() {
+		upAlgorithm.makeMove();
+	}
+
+	public void down() {
+		downAlgorithm.makeMove();
+	}
 }

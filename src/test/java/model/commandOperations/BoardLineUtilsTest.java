@@ -44,20 +44,16 @@ public class BoardLineUtilsTest {
 
 	@Test
 	public void swapValues_twoDifferentPointsWithDifferentValues_valuesAreSwapped() {
-		when(area.getFieldValue(fixedValue1.x, fixedValue1.y)).thenReturn(
-				fixedValue1.value);
-		when(area.getFieldValue(fixedValue2.x, fixedValue2.y)).thenReturn(
-				fixedValue2.value);
+		when(area.getFieldValue(fixedValue1.x, fixedValue1.y)).thenReturn(fixedValue1.value);
+		when(area.getFieldValue(fixedValue2.x, fixedValue2.y)).thenReturn(fixedValue2.value);
 
 		final Point p1 = new Point(fixedValue1.x, fixedValue1.y);
 		final Point p2 = new Point(fixedValue2.x, fixedValue2.y);
 
 		testObject.swapValues(p1, p2);
 
-		verify(area).setFieldValue(fixedValue1.x, fixedValue1.y,
-				fixedValue2.value);
-		verify(area).setFieldValue(fixedValue2.x, fixedValue2.y,
-				fixedValue1.value);
+		verify(area).setFieldValue(fixedValue1.x, fixedValue1.y, fixedValue2.value);
+		verify(area).setFieldValue(fixedValue2.x, fixedValue2.y, fixedValue1.value);
 	}
 
 	@Test
